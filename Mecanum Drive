@@ -10,6 +10,7 @@ package edu.wpi.first.wpilibj.templates;
 import edu.wpi.first.wpilibj.SimpleRobot;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Gyro
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -26,6 +27,7 @@ public class RobotTemplate extends SimpleRobot {
     private Joystick leftJoystick = new Joystick(x);
     private Joystick rightJoystick = new Joystick(y);
     private RobotDrive mecDrive = new RobotDrive(1,2,3,4);
+    private Gyro gyroscope = new Gyro(1);
    
             
     public void autonomous() {
@@ -36,14 +38,14 @@ public class RobotTemplate extends SimpleRobot {
         double xValue = 0.0;
         double yValue = 0.0;
         double rotation = 0.0;
-        double gyroAngle;
+        double gyroAngle = 0.0;
                 
          while(isOperatorControl() && isEnabled()) {
              xValue = rightJoystick.getX();
              yValue = rightJoystick.getY();
              rotation = leftJoystick.getX();
-             
-            // gyro angle use something 
+             gyroAngle = gyroscope.getAngel();
+            
              mecDrive.mecanumDrive_Cartesian(xValue, yValue, rotation, gyroAngle);
                      
          }
