@@ -44,7 +44,7 @@ public class RobotTemplate extends SimpleRobot {
              xValue = rightJoystick.getX();
              yValue = rightJoystick.getY();
              rotation = leftJoystick.getX();
-             gyroAngle = gyroscope.getAngel();
+             gyroAngle = gyroscope.getAngle();
             
              mecDrive.mecanumDrive_Cartesian(xValue, yValue, rotation, gyroAngle);
                      
