@@ -25,7 +25,7 @@ public class RobotTemplate extends SimpleRobot {
     //ADD PORTS!!!
     private Joystick leftJoystick = new Joystick(x);
     private Joystick rightJoystick = new Joystick(y);
-    private RobotDrive mechDrive = new RobotDrive(1,2,3,4);
+    private RobotDrive mecDrive = new RobotDrive(1,2,3,4);
    
             
     public void autonomous() {
@@ -39,14 +39,13 @@ public class RobotTemplate extends SimpleRobot {
         double gyroAngle;
                 
          while(isOperatorControl() && isEnabled()) {
-             //getWatchdog().feed();
               
              xValue = rightJoystick.getX();
              yValue = rightJoystick.getY();
              rotation = leftJoystick.getX();
              
             // gyro angle use something 
-             mechDrive.mecanumDrive_Cartesian(xValue, yValue, rotation, gyroAngle);
+             mecDrive.mecanumDrive_Cartesian(xValue, yValue, rotation, gyroAngle);
                      
          }
     }
