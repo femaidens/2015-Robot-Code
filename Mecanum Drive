@@ -39,7 +39,6 @@ public class RobotTemplate extends SimpleRobot {
         double gyroAngle;
                 
          while(isOperatorControl() && isEnabled()) {
-              
              xValue = rightJoystick.getX();
              yValue = rightJoystick.getY();
              rotation = leftJoystick.getX();
