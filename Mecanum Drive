@@ -38,7 +38,7 @@ public class RobotTemplate extends SimpleRobot {
     private Gyro gyroscope = new Gyro(1);
     
     //Pneumatics
-    private Compressor Comp = new Compressor(1,2);
+    
     
             
     public void autonomous() {
