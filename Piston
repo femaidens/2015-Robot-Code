@@ -14,11 +14,11 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 public class piston{
     
     private DoubleSolenoid piston;
-    // pistons are generally booleans. they have two values: on and off. there is no in between.
+    /*pistons are generally booleans. they have two values: on and off. there is no in between.
     pistons are controlled by solenoids, which control the air flow into the pistons. 
     when air is moved through the back of the piston, the air pushes the piston out, making it extend.
     in order to retract the piston, air is moved through the front of the piston. 
-    the difference in air pressure is what causes the piston to extend and retract
+    the difference in air pressure is what causes the piston to extend and retract*/
     
     public piston (int port1, int port2){
         //creation of piston in ports 1 and 2
