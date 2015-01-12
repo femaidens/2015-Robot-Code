@@ -15,10 +15,9 @@ public class RobotArm{
     //the arm or forklift that will carry the totes and recycling bin
     private Arm forklift;
     
-    public RobotArm(Arm forklift){
+    public RobotArm(Arm lift){
         //creation of forklift that will carry game pieces
-        forklift= new Arm();
-        forklift= fork;
+        forklift= lift;
     }
     
     //method used to make the arm go up
