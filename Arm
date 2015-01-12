@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 
-//MUST CREATE ARM CLASS FROM MOTOR AND PULLEY
+/* MUST CREATE ARM CLASS FROM MOTOR AND PULLEY
+ * CREATE UP AND DOWN METHODS IN MOTORS OR PULLEY
+ * MOTORS FORWARD OR BACKWARD. POSITIVE OR NEGATIVE
+ */
  
 package edu.wpi.first.wpilibj.templates;
 
