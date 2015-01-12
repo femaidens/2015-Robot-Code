@@ -1,0 +1,29 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package edu.wpi.first.wpilibj.templates;
+
+import edu.wpi.first.wpilibj.Talon;
+
+public class RobotArm{
+    //the arm or forklift that will carry the totes and recycling bin
+    private Arm forklift;
+    
+    public RobotArm(){
+        //creation of forklift that will carry game pieces
+        forklift= new Arm();
+    }
+    
+    //method used to make the arm go up
+    public void Up(){
+        forklift.up();
+    }
+    
+    //method used to make the arm go down
+    public void Down(){
+        forklift.down();
+    }
+    
+}
