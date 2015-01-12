@@ -1,0 +1,40 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package edu.wpi.first.wpilibj.templates;
+
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+/**
+ *
+ * @author student
+ */
+public class piston{
+    
+    private DoubleSolenoid piston;
+    
+    public piston (int port1, int port2){
+        //creation of piston in ports 1 and 2
+        piston= new DoubleSolenoid (port1, port2);
+       
+    }
+    
+    public void extend(){
+        //method used to extend the pistons
+        piston.set(DoubleSolenoid.Value.kForward);
+       
+    }
+   /* public void off(){
+        //method used stop piston movement through movement of air
+        piston.set(DoubleSolenoid.Value.kOff);
+        
+    }
+    */
+    public void retract(){
+        //method used to retract the pistons
+        piston.set(DoubleSolenoid.Value.kReverse);
+       
+    }  
+}
