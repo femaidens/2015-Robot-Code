@@ -11,6 +11,10 @@ import edu.wpi.first.wpilibj.SimpleRobot;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Gyro
+import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -26,9 +30,16 @@ public class RobotTemplate extends SimpleRobot {
     //ADD PORTS!!!
     private Joystick leftJoystick = new Joystick(x);
     private Joystick rightJoystick = new Joystick(y);
-    private RobotDrive mecDrive = new RobotDrive(1,2,3,4);
+    private Talon frontLeft = new Talon(1);
+    private Talon rearLeft = new Talon(2);
+    private Talon frontRight = new Talon(3);
+    private Talon rearRight = new Talon(4);
+    private RobotDrive mecDrive = new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
     private Gyro gyroscope = new Gyro(1);
-   
+    
+    //Pneumatics
+    private Compressor Comp = new Compressor(1,2);
+    
             
     public void autonomous() {
         
