@@ -15,7 +15,7 @@ public class RobotArm{
         forklift= new Arm();
     }
     
-    //method used to make the arm go up
+    //method used to make the arm go up 
     public void Up(){
         forklift.up();
     }
