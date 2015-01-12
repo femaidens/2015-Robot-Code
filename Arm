@@ -9,6 +9,12 @@
 package edu.wpi.first.wpilibj.templates;
 
 public class RobotArm{
+    //creates arm class for forklift
+    private static class Arm {
+        public Arm() {
+        }
+    }
+
     //the arm or forklift that will carry the totes and recycling bin
     private Arm forklift;
     
@@ -17,7 +23,7 @@ public class RobotArm{
         forklift= new Arm();
     }
     
-    //method used to make the arm go up 
+    //method used to make the arm go up
     public void Up(){
         forklift.up();
     }
@@ -26,5 +32,4 @@ public class RobotArm{
     public void Down(){
         forklift.down();
     }
-    
 }
