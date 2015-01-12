@@ -5,8 +5,6 @@
  */
 package edu.wpi.first.wpilibj.templates;
 
-import edu.wpi.first.wpilibj.Talon;
-
 public class RobotArm{
     //the arm or forklift that will carry the totes and recycling bin
     private Arm forklift;
