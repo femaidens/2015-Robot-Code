@@ -1,0 +1,71 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import edu.wpi.first.wpilibj.Joystick;
+
+public class EDC{
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import edu.wpi.first.wpilibj.Joystick;
+
+public class EDC{
+  public double convertDriveVal(Joystick jstick){
+    // get y-value of given joystick
+    double yVal = jstick.getY();
+    
+    if (yVal == 0){
+      return 0.0;
+    }
+    //if backwards, convert to drive value with f(x) = -log(-1(x-1)) 
+    else if (yVal < -0.5){
+      return (double)(-1)*Math.log10(-1*(yVal-1)); 
+    }
+    
+    else if (yVal < 0.0 && yVal > -0.5){
+      //return {some exponential function} 
+    }
+    
+    //if forwards, convert to drive value with f(x) = log(x+1)
+    else if (yVal > 0.5){
+      return (double)Math.log10(yVal+1); 
+    }
+    
+    else if (yVal < 0.5 && yVal > 0){
+      //return {some exponential function} 
+    }
+  }
+}  
+  
+  public double convertDriveVal(Joystick jstick){
+    // get y-value of given joystick
+    double yVal = jstick.getY();
+    
+    if (yVal == 0){
+      return 0.0;
+    }
+    //if backwards, convert to drive value with f(x) = -log(-1(x-1)) 
+    else if (yVal < -0.5){
+      return (double)(-1)*Math.log10(-1*(yVal-1)); 
+    }
+    
+    else if (yVal < 0.0 && yVal > -0.5){
+      //return {some exponential function} 
+    }
+    
+    //if forwards, convert to drive value with f(x) = log(x+1)
+    else if (yVal > 0.5){
+      return (double)Math.log10(yVal+1); 
+    }
+    
+    else if (yVal < 0.5 && yVal > 0){
+      //return {some exponential function} 
+    }
+  }
+}  
