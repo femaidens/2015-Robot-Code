@@ -1,0 +1,37 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package edu.wpi.first.wpilibj.templates;
+
+import edu.wpi.first.wpilibj.SimpleRobot;
+import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Gyro;
+import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Timer;
+
+/**
+ *
+ * @author student
+ */
+public class Autonomous {
+    private Talon frontLeft = new Talon(1);
+    private Talon rearLeft = new Talon(2);
+    private Talon frontRight = new Talon(3);
+    private Talon rearRight = new Talon(4);
+    private Timer clock = new Timer(1);
+    
+    public void moveForward() {
+    
+    clock.start();
+    while (clock.get() < 15) {
+        frontLeft.set(1.0);
+        rearLeft.set(1.0);
+        frontRight.set(1.0);
+        rearRight.set(1.0);
+    }
+}
+ 
+}
