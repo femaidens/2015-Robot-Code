@@ -25,10 +25,11 @@ public class Autonomous {
     while (clock.get() < 15) {
         mecDrive.mecanumDrive_Cartesian(0, 1, 0, 0);
     }
- }
+}
  
- public void tote() {
+public void tote() {
     forklift.up();
     mecDrive.mecanumDrive_Cartesian(0, 1, 0, 0);
- }
+    }
+    
 }
