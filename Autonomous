@@ -20,16 +20,15 @@ public class Autonomous {
     private Timer clock = new Timer(1);
     
     public void moveForward() {
-    
-    clock.start();
-    while (clock.get() < 15) {
-        mecDrive.mecanumDrive_Cartesian(0, 1, 0, 0);
+        clock.start();
+        while (clock.get() < 15) {
+            mecDrive.mecanumDrive_Cartesian(0, 1, 0, 0);
+        }
     }
-}
  
-public void tote() {
-    forklift.up();
-    mecDrive.mecanumDrive_Cartesian(0, 1, 0, 0);
+    public void tote() {
+        forklift.up();
+        mecDrive.mecanumDrive_Cartesian(0, 1, 0, 0);
     }
     
 }
