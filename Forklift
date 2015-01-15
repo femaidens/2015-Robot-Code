@@ -16,7 +16,7 @@ public class Forklift{
     //the forklift that will carry the totes and recycling bin
     private Arm forklift;
     
-    //create of forklift that will carry game pieces
+    //create forklift object that will carry game pieces
     public Forklift(){
     
     }
@@ -31,7 +31,13 @@ public class Forklift{
     
     }
     
-    public void release(){
+    //method used to extend piston to push one arm in
+    public void closeArm(){
+    
+    }
+    
+    //method used to retract piston to move arm out
+    public void openArm(){
     
     }
 }
