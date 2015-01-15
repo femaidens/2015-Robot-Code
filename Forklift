@@ -22,12 +22,16 @@ public class Forklift{
     }
     
     //method used to make the arm go up
-    public void Up(){
+    public void up(){
     
     }
     
     //method used to make the arm go down
-    public void Down(){
-
+    public void down(){
+    
+    }
+    
+    public void release(){
+    
     }
 }
