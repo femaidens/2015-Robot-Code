@@ -11,7 +11,8 @@ public class RobotTemplate extends SimpleRobot{
 
     private Joystick leftJoystick = new Joystick(2);
     private Joystick rightJoystick = new Joystick(1);
-    
+    private EDC converDriveVal;
+    private Forklift forklift;
     //Needs ports for compressor.
     private Compressor comp = new Compressor( , );
     
@@ -27,6 +28,7 @@ public class RobotTemplate extends SimpleRobot{
         }
     }
     
+  
     //Startup method. Turns compressor and camera on.
     public void init(){
         comp.start();
