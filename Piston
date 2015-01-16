@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
  *
  * @author student
  */
-public class piston{
+public class Piston{
     
     private DoubleSolenoid piston;
     /*pistons are generally booleans. they have two values: on and off. there is no in between.
