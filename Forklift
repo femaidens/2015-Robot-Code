@@ -36,13 +36,12 @@ public class Forklift{
     
     //method used to extend piston to push one arm in
     public void toteMode(){
-      
-      
+      piston.set(DoubleSolenoid.Value.kReverse);
     }
     
     //method used to retract piston to move arm out
     public void binMode(){
-    
+       piston.set(DoubleSolenoid.Value.kForward);
     }
 
 }
