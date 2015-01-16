@@ -28,7 +28,7 @@ public class Autonomous {
  
     public void tote() {
         forklift.up();
-        mecDrive.mecanumDrive_Cartesian(0, 1, 0, 0);
+        moveForward();
     }
     
 }
