@@ -17,7 +17,12 @@ import edu.wpi.first.wpilibj.Timer;
 public class Autonomous {
     
     RobotDrive mecDrive;
-    private Timer clock = new Timer(1);
+    private Timer clock = new Timer();
+    private Talon frontLeft = new Talon(1);
+    private Talon rearLeft = new Talon(2);
+    private Talon frontRight = new Talon(3);
+    private Talon rearRight = new Talon(4);
+    private RobotDrive mecDrive = new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
     
     public void moveForward() {
         clock.start();
@@ -28,7 +33,7 @@ public class Autonomous {
  
     public void tote() {
         forklift.up();
-        moveForward();
+        moveForward(); 
     }
     
 }
