@@ -12,9 +12,10 @@ public class Forklift{
     private DoubleSolenoid piston = new DoubleSolenoid(1,2);
     private Talon topMotor = new Talon(1);
     private Talon bottomMotor = new Talon(2);
+    private Timer clock = new Timer();
     
     public Forklift(){
-       
+       clock.start();
     }
     
     //method used to make the arm go up
