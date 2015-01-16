@@ -9,7 +9,7 @@ public class Forklift{
     //the forklift that will carry the totes and recycling bin
     
     //create forklift object that will carry game pieces
-    private DoubleSolenoid piston = new DoubleSolenoid(1,2);
+    private Piston piston = new Piston(1,2);
     private Talon topMotor = new Talon(1);
     private Talon bottomMotor = new Talon(2);
     
@@ -36,12 +36,12 @@ public class Forklift{
     
     //method used to extend piston to push one arm in
     public void toteMode(){
-      piston.set(DoubleSolenoid.Value.kReverse);
+      piston.retract();
     }
     
     //method used to retract piston to move arm out
     public void binMode(){
-       piston.set(DoubleSolenoid.Value.kForward);
+       piston.extend();
     }
 
 }
