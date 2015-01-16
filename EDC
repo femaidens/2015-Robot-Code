@@ -7,9 +7,9 @@
 import edu.wpi.first.wpilibj.Joystick;
 
 public class EDC{
-  public double convertDriveVal(Joystick jstick){
+  public double convertDriveVal(double yValue){
     // get y-value of given joystick
-    double yVal = jstick.getY();
+    double yVal = yValue;
     
     if (yVal == 0){
       return 0.0;
