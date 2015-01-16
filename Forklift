@@ -16,21 +16,28 @@ public class Forklift{
     public Forklift(){
     }
     
-    //method used to make the arm go up
+    //method used to make the forklift go up
     public void up(){
       topMotor.set(0.75);
       bottomMotor.set(0.75);
     }
     
-    //method used to make the arm go down
+    //method used to make the forklift go down
     public void down(){
       topMotor.set(-0.75);
       bottomMotor.set(-0.75);
     }
     
+    //method to stop the forklift
+    public void stop(){
+      topMotor.set(0.0);
+      bottomMotor.set(0.0);
+    }
+    
     //method used to extend piston to push one arm in
     public void toteMode(){
-    
+      
+      
     }
     
     //method used to retract piston to move arm out
