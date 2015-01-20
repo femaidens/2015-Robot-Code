@@ -1,0 +1,29 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package edu.wpi.first.wpilibj.templates;
+
+import edu.wpi.first.wpilibj.Joystick;
+
+/**
+ *
+ * @author vincentk
+ */
+public class Button {
+    private Joystick leftJoystick;
+    private Joystick rightJoystick;
+    private Joystick attackController;
+    private Forklift forklift;
+    
+public Button(Joystick left, Joystick right,Joystick atk, Forklift lift){
+    leftJoystick = left;
+    rightJoystick = right;
+    attackController = atk;
+    forklift = lift;
+}
+public void configureButtons();
+    atk(6).whenPressed(lift.up);
+ 
+}
