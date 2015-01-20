@@ -13,6 +13,8 @@ public class RobotTemplate extends SimpleRobot{
     private Joystick rightJoystick = new Joystick(1);
     private EDC converDriveVal;
     private Forklift forklift;
+    private AxisCamera cam;
+    
     //Needs ports for compressor.
     private Compressor comp = new Compressor( , );
     
@@ -32,6 +34,9 @@ public class RobotTemplate extends SimpleRobot{
     //Startup method. Turns compressor and camera on.
     public void init(){
         comp.start();
+        
+        // The string parameter for the AXIS cam should be its IP address
+        cam = AxisCamera.getInstance("");
     }
     
 }
