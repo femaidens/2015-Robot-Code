@@ -29,8 +29,9 @@ public class EDC{
       return (double)Math.log10(yVal+1); 
     }
     
+    //if forwards and y value between 0 and 0.5, convert with f(x) = (0.81437)(10^(x-1)-0.1)
     else if (yVal < 0.5 && yVal > 0){
-      //return {some exponential function} 
+      return (double)(0.81437)*(Math.pow(10, yVal-1)-0.1);
     }
   }
 }  
