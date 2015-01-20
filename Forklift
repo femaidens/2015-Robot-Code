@@ -13,9 +13,6 @@ public class Forklift{
     private Talon topMotor = new Talon(1);
     private Talon bottomMotor = new Talon(2);
     
-    public Forklift(){
-    }
-    
     //method used to make the forklift go up
     public void up(){
       topMotor.set(0.75);
@@ -34,12 +31,12 @@ public class Forklift{
       bottomMotor.set(0.0);
     }
     
-    //method used to extend piston to push one arm in
+    //method used to retract piston to push one arm in to fit around the tote
     public void toteMode(){
       piston.retract();
     }
     
-    //method used to retract piston to move arm out
+    //method used to extend piston to move arm out to fit around the bin
     public void binMode(){
        piston.extend();
     }
