@@ -10,6 +10,7 @@ public class EDC{
   public double convertDriveVal(double yValue){
     // get y-value of given joystick
     double yVal = yValue;
+    //note: it might be worth experimenting with the square root curve
     
     if (yVal == 0){
       return 0.0;
