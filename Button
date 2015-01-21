@@ -38,5 +38,5 @@ public void configureButtons() {
    }
    if (attackController.getRawButton(5)) {
         forklift.toteMode();
-        }
+    }
 }
