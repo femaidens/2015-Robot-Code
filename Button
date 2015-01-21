@@ -26,9 +26,12 @@ public Button(Joystick left, Joystick right,Joystick atk, Forklift lift){
 public void configureButtons() {
    if (attackController.getRawButton(6)) {
         forklift.up();
-   } 
+   }
    if (attackController.getRawButton(7)) {
         forklift.down();
+   }
+   else if(!attackController.getRawButton(6) && !attackController.getRawButton(7)){
+        forklift.stop();
    }
    if (attackController.getRawButton(4)) {
         forklift.binMode();
