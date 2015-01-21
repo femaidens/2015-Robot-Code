@@ -7,6 +7,8 @@ public class ForkliftDisplay extends JFrame
 {
   private Ultrasonic ultrasonicSensor = new Ultrasonic(1,2); //add ports
   private Timer clock = new Timer();
+  private final double numLevels = 5.0; //these values are open to changes
+  private final double heightForklift = 65.0;
   
   public static void ForkliftDiplay()
   {
@@ -20,9 +22,7 @@ public class ForkliftDisplay extends JFrame
   
   public void setLevel()
   {
-    SmartDashboard.putNumber("Forklift Level", ultrasonicSensor.getRangeInches());
-    //we do not know how tall the forklift is so the inches will be 
-    //configured to the numerical level on the Smart Dashboard
+    SmartDashboard.putNumber("Forklift Level", ((ultrasonicSensor.getRangeInches()*numLevels)/heightForklift));
     clock.delay(1.0);
   }
 }
