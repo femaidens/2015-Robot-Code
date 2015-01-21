@@ -5,8 +5,8 @@
  
 package edu.wpi.first.wpilibj.templates;
 
+//the forklift that will carry the totes and recycling bin
 public class Forklift{
-    //the forklift that will carry the totes and recycling bin
     
     //create forklift object that will carry game pieces
     private Piston piston = new Piston(1,2);
