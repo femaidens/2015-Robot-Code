@@ -6,7 +6,6 @@
 package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.Timer;
 
 /**
  *
@@ -17,14 +16,12 @@ public class Button {
     private Joystick rightJoystick;
     private Joystick attackController;
     private Forklift forklift;
-    private Timer clock;
     
-public Button(Joystick left, Joystick right,Joystick atk, Forklift lift, Timer clock){
+public Button(Joystick left, Joystick right,Joystick atk, Forklift lift){
     leftJoystick = left;
     rightJoystick = right;
     attackController = atk;
     forklift = lift;
-    clock = time;
 }
 public void configureButtons() {
    if (attackController.getRawButton(6)) {
