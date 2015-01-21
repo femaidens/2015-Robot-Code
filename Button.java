@@ -7,10 +7,6 @@ package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.Joystick;
 
-/**
- *
- * @author vincentk
- */
 public class Button {
     private Joystick leftJoystick;
     private Joystick rightJoystick;
@@ -22,7 +18,7 @@ public Button(Joystick left, Joystick right,Joystick atk, Forklift lift){
     rightJoystick = right;
     attackController = atk;
     forklift = lift;
-}
+    }
 public void configureButtons() {
     //if button 6 is pressed, the forklift moves up
    if (attackController.getRawButton(6)) {
