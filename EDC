@@ -4,9 +4,15 @@
  * and open the template in the editor.
  */
 
+/* VARIABLE NAMES:
+ * b = base
+ * c = crosspoint
+ * h = vertical scaling of exp function 
+ * k = vertical scaling of log function
+
+
 import edu.wpi.first.wpilibj.Joystick;
 import java.lang.Math;
-
 
 public class EDC{
   private final double CROSSOVER = 0.5;
@@ -20,8 +26,7 @@ public class EDC{
     // get y-value of given joystick
     double yVal = yValue;
     
-    //note: it might be worth experimenting with the square root curve
-    
+    //when joystick isn't moving
     if (yVal == 0){
       return 0.0;
     }
