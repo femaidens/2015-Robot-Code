@@ -9,6 +9,7 @@
  * c = crosspoint
  * h = vertical scaling of exp function 
  * k = vertical scaling of log function
+ */
 
 
 import edu.wpi.first.wpilibj.Joystick;
