@@ -1,11 +1,9 @@
-
 package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.camera.AxisCamera;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SimpleRobot;
-
 
 public class RobotTemplate extends SimpleRobot{
 
@@ -30,7 +28,6 @@ public class RobotTemplate extends SimpleRobot{
         }
     }
     
-  
     //Startup method. Turns compressor and camera on.
     public void init(){
         comp.start();
