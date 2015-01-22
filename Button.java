@@ -19,23 +19,29 @@ public Button(Joystick left, Joystick right,Joystick atk, Forklift lift){
     attackController = atk;
     forklift = lift;
     }
+    
 public void configureButtons() {
+    
     //if button 6 on the attack controller is pressed, the forklift moves up
    if (attackController.getRawButton(6)) {
         forklift.up();
    }
+   
     //if button 7 on the attack controller is pressed, the forklift moves down
    if (attackController.getRawButton(7)) {
         forklift.down();
    }
+   
    //if neither button 6 nor 7 on the attack controller is pressed, the forklift stops
-   else if(!attackController.getRawButton(6) && !attackController.getRawButton(7)){
+   else if (!attackController.getRawButton(6) && !attackController.getRawButton(7)) {
         forklift.stop();
    }
+   
    //if button 4 on the attack controller is pressed, the robot goes into bin mode to prepare for carrying recycling bin
    if (attackController.getRawButton(4)) {
         forklift.binMode();
    }
+   
    //if button 5 on the attack controller is pressed, the robot goes into tote mode to prepare for carrying totes
    if (attackController.getRawButton(5)) {
         forklift.toteMode();
