@@ -7,6 +7,9 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team2265.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2265.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team2265.robot.subsystems.Forklift;
+import org.usfirst.frc.team2265.robot.subsystems.Manipulator;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -19,6 +22,9 @@ public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
+	
+	public static Forklift forklift;
+	public static Manipulator manipulator; 
 
     Command autonomousCommand;
 
