@@ -16,7 +16,7 @@ public class EDC extends Subsystem {
   private final double BASE = 10; 
     
  /* create left joystick */ 
-  private final Joystick LEFTSTICK = new Joystick(/*insert port # */);
+  private final Joystick LEFTSTICK = new Joystick(1/*insert port # */);
  
  /* change of base formula for log function */
  private double logN(double base, double n){
@@ -28,7 +28,7 @@ public class EDC extends Subsystem {
   
    /* get y-value of given joystick and intialize driveVal */ 
    double yVal = LEFTSTICK.getY();
-   double driveVal;
+   double driveVal = 1; // TODO this might not be correct
      
    /* return 0 when joystick isn't moving */
    if (yVal == 0){
