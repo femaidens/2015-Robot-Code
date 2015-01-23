@@ -20,17 +20,18 @@ public class MecanumDrive extends Subsystem {
 	
     // Put methods for controlling this subsystem here. Call these from Commands.
      public void drive() {
+     	//left joystick controls left right up down, right controls rotation
     	 double xValue = 0.0;
     	 double yValue = 0.0;
     	 double rotation = 0.0;
     	 double gyroAngle = 0.0;
         
-    	 mecDrive.mecanumDrive_Cartesian(oi.leftJoystick.getX(), oi.rightJoystick.getY(), oi.leftJoystick.getX(), gyroscope.getAngle());
+    	 mecDrive.mecanumDrive_Cartesian(oi.leftJoystick.getX(), oi.leftJoystick.getY(), oi.rightJoystick.getX(), gyroscope.getAngle());
     //mecanum cartesian drive command
      }
 
     public void initDefaultCommand() {
-    	//the default command that is used when MecanumDrive is initialized
+    	//the default command that is used when MecanumDrive is initialized; it just shuts off all the motors.
     	frontLeft.set(0.0);
     	frontRight.set(0.0);
     	rearLeft.set(0.0);
