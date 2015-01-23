@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team2265.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2265.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import org.usfirst.frc.team2265.robot.subsystems.MecanumDrive;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -19,6 +20,7 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	public static MecanumDrive mecanumDrive = new MecanumDrive();
 	public static OI oi;
 
     Command autonomousCommand;
