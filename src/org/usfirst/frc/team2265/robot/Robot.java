@@ -9,7 +9,7 @@ import org.usfirst.frc.team2265.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2265.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2265.robot.subsystems.Forklift;
 import org.usfirst.frc.team2265.robot.subsystems.Manipulator;
-import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import org.usfirst.frc.team2265.robot.subsystems.PIDSubsystem;
 import org.usfirst.frc.team2265.robot.subsystems.MecanumDrive;
 import org.usfirst.frc.team2265.robot.OI;
 
@@ -25,11 +25,12 @@ public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static MecanumDrive mecanumDrive = new MecanumDrive();
+	public static PIDSubsystem pid = new PIDSubsystem();
 	public static OI oi;
 	
 	public static Forklift forklift;
 	public static Manipulator manipulator; 
-	public static PIDSubsystem pid;
+	
 
     Command autonomousCommand;
 
