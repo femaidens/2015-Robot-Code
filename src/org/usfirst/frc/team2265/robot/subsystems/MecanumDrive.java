@@ -28,7 +28,8 @@ public class MecanumDrive extends Subsystem {
     	 //requires(Robot.io);
         
     	 //mecDrive.mecanumDrive_Cartesian(oi.leftJoystick.getX(), oi.leftJoystick.getY(), oi.rightJoystick.getX(), gyroscope.getAngle());
-    //mecanum cartesian drive command
+         //mecanum cartesian drive command
+         //doesn't work B/C no OI class yet
      }
 
     public void initDefaultCommand() {
