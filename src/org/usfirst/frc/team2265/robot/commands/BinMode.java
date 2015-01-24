@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 /**
- * The BinMode command is to increase the size of the forklift to make it fit around the bin.
+ * The BinMode command is to increase the size of the forklift to make it fit around the bin.!
  */
 public class BinMode extends Command {
 
