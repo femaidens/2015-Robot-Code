@@ -19,9 +19,9 @@ public class DriveControl extends PIDSubsystem {
 	
 	// Subsystem devices
 	private CANTalon frontLeft = new CANTalon(1);
-	//private CANTalon rearLeft = new CANTalon(2);
-	//private CANTalon frontRight = new CANTalon(3);
-	//private CANTalon rearRight = new CANTalon(4); 
+	private CANTalon rearLeft = new CANTalon(2);
+	private CANTalon frontRight = new CANTalon(3);
+	private CANTalon rearRight = new CANTalon(4); 
 
 	public DriveControl(){
 		super("PID", 7.0, 0.0, 8.0, 0.0);			// The three doubles are the PID values, need to test for them later
@@ -29,6 +29,7 @@ public class DriveControl extends PIDSubsystem {
 		getPIDController().setContinuous(true);		// Always run PID
 		
 		// Allows us to test for PID and F values
+		// should be 'isTest' not isSimulation
 		if (Robot.isSimulation()) { 						
 			getPIDController().setPID(0.5, 0.001, 2, 0.0);
 			setAbsoluteTolerance(5);
@@ -37,6 +38,8 @@ public class DriveControl extends PIDSubsystem {
 	
 	// Allows LiveWindow to be used with components
 	// LiveWindow.addActuator("driveControl", "DriveControlController", getPIDController());		// CANTalons aren't livewindow sendable, use encoders instead?
+	// LiveWindow has to do with testing on the SmartDashboard
+	
 	
     // No default commands
     public void initDefaultCommand() {}	   
@@ -48,6 +51,9 @@ public class DriveControl extends PIDSubsystem {
 	//Sets the motor speed based off of the PID output
 	protected void usePIDOutput(double output){
 		frontLeft.pidWrite(output);
+		rearLeft.pidWrite(output);
+		frontRight.pidWrite(output);
+		rearRight.pidWrite(output);
 	}
 
 	@Override
