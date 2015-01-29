@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj.CANTalon;
 //import edu.wpi.first.wpilibj.Encoder;
 //import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
-
 /**
  *
  */
