@@ -16,6 +16,9 @@ package org.usfirst.frc.team2265.robot;
    * This class is the glue that binds the controls on the physical operator
    * interface to the commands and command groups that allow control of the robot.
    */
+ 
+ //OI's back. tell a friend
+ 
   public class OI {
       //// CREATING BUTTONS
 	  private final int ATTACK_CONTROLLER_PORT= 3;
