@@ -17,7 +17,7 @@ package org.usfirst.frc.team2265.robot;
    * interface to the commands and command groups that allow control of the robot.
    */
  
- //OI's back. tell a friend
+ //OI's back. tell a friend.
  
   public class OI {
       //// CREATING BUTTONS
