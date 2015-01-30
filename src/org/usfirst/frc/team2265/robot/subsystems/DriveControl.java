@@ -7,8 +7,9 @@ import org.usfirst.frc.team2265.robot.Robot;
 //import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 //import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.hal.CanTalonJNI;
+//import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.TalonSRX;
+//import edu.wpi.first.wpilibj.hal.CanTalonJNI;
 //import edu.wpi.first.wpilibj.Timer;
 //import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -19,11 +20,12 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  
 public class DriveControl extends PIDSubsystem {
 	// I just changed the file lOL
+	// random edit
 	// Subsystem devices
-	private CANTalon frontLeft = new CANTalon(1);
-	private CANTalon rearLeft = new CANTalon(2);
-	private CANTalon frontRight = new CANTalon(3);
-	private CANTalon rearRight = new CANTalon(4); 
+	private TalonSRX frontLeft;
+	private TalonSRX rearLeft;
+	private TalonSRX frontRight;
+	private TalonSRX rearRight; 
 	
 	
 
@@ -49,7 +51,7 @@ public class DriveControl extends PIDSubsystem {
     public void initDefaultCommand() {}	   
     
     protected double returnPIDinput() {
-    	return frontLeft.getOutputVoltage();
+    	return frontLeft.get();
     }
 	
 	//Sets the motor speed based off of the PID output
