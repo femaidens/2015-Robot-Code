@@ -12,7 +12,7 @@ public class DriveWithJoysticks extends Command {
 	//public MecanumDrive mecanumDrive = new MecanumDrive();
     public DriveWithJoysticks() {
     	requires(Robot.mecanumDrive);
-    	//requires(Robot.pid);
+    	//requires(Robot.DriveControl);
     
     }
 
