@@ -5,8 +5,6 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.usfirst.frc.team2265.robot.commands.ExampleCommand;
-import org.usfirst.frc.team2265.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2265.robot.subsystems.Forklift;
 import org.usfirst.frc.team2265.robot.subsystems.Manipulator;
 import org.usfirst.frc.team2265.robot.subsystems.DriveControl;
@@ -23,7 +21,6 @@ import org.usfirst.frc.team2265.robot.OI;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static MecanumDrive mecanumDrive = new MecanumDrive();
 	public static OI oi;
 	public static DriveControl DriveControl;
@@ -42,7 +39,6 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         DriveControl = new DriveControl();		// This is the PID subsystem
          // instantiate the command used for the autonomous period
-        autonomousCommand = new ExampleCommand();
        
     }
 	

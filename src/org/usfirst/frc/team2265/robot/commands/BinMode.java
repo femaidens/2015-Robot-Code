@@ -39,7 +39,19 @@ public class BinMode extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	if (Robot.manipulator.get().equals(Value.kForward_val))
+    	{ 
+    		return false;
+    	}
+    	else if (Robot.manipulator.get().equals(Value.kReverse_val))
+    	{
+    		return true;
+    	}
+    	else if (Robot.manipulator.get().equals(Value.kOff_val))
+    	{
+    		return false;
+    	}
+    	return false;
     }
 
     // Called once after isFinished returns true
