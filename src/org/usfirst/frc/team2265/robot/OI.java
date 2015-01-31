@@ -39,10 +39,10 @@ package org.usfirst.frc.team2265.robot;
 	       forkliftDownButton = new JoystickButton(attackJoy,FORKLIFT_DOWN_BUTTON);
 
 		public OI (){
-		//pistonOutButton.whenPressed(new PistonOut());
-		//pistonInButton.whenPressed(new PistonIn());
-		forkliftUpButton.whenPressed(new ForkliftUp());
-		forkliftDownButton.whenPressed(new ForkliftDown());
+		pistonOutButton.whenPressed(new ToteMode());
+		pistonInButton.whenPressed(new BinMode());
+		forkliftUpButton.whileHeld(new ForkliftUp());
+		forkliftDownButton.whileHeld(new ForkliftDown());
 		
 		//So the code is for buttons
 		//
