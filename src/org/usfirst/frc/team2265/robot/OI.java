@@ -22,21 +22,26 @@ package org.usfirst.frc.team2265.robot;
  
   public class OI {
       //// CREATING BUTTONS
-	  private final int ATTACK_CONTROLLER_PORT= 3;
-	  private final int LEFT_CONTROLLER_PORT=1;
-	  private final int RIGHT_CONTROLLER_PORT=2;
+	  private final int ATTACK_CONTROLLER_PORT = 3;
+	  private final int LEFT_CONTROLLER_PORT = 1;
+	  private final int RIGHT_CONTROLLER_PORT = 2;
 	    // Ports to connect the robot to other stuff and stuff
-	  private final int FORKLIFT_UP_BUTTON = 6; //When button 6 is pressed, then the fork lift will move up
-	  private final int FORKLIFT_DOWN_BUTTON = 7; 
-	    //When button 7 is pressed then the fork lift will move down. 
-	    //When either button is let go, the fork lift will stop moving
-	  Joystick attackJoy = new Joystick(3);
 	  Joystick leftJoy= new Joystick(1);
 	  Joystick rightJoy=new Joystick(2);
-	  Button pistonOutButton = new JoystickButton(attackJoy,LEFT_CONTROLLER_PORT),
-		   pistonInButton = new JoystickButton(attackJoy,RIGHT_CONTROLLER_PORT),
-	       forkliftUpButton = new JoystickButton(attackJoy,FORKLIFT_UP_BUTTON),
-	       forkliftDownButton = new JoystickButton(attackJoy,FORKLIFT_DOWN_BUTTON);
+	  private final int FORKLIFT_UP_BUTTON = 6; //When button 6 is pressed, then the fork lift will move up
+	  private final int FORKLIFT_DOWN_BUTTON = 7; 
+	  //private final int PISTON_IN_BUTTON = 4;
+	  //private final int PISTON_OUT_BUTTON = 5;
+	    //When button 7 is pressed then the fork lift will move down. 
+	    //When either button is let go, the fork lift will stop moving
+	        // right now, the joysticks are used for pistonOut/pistonIn for the sake of testing, 
+	        // but on the finished version, the buttons for these methods will be on the same atk controller as forkliftUp/forkliftDown
+	        // hence the creation of pistonOut and pistonIn buttons, which are commented out above
+	  Joystick attackJoy = new Joystick(3);
+	  Button pistonOutButton = new JoystickButton(attackJoy,LEFT_CONTROLLER_PORT), 
+		     pistonInButton = new JoystickButton(attackJoy,RIGHT_CONTROLLER_PORT),
+	         forkliftUpButton = new JoystickButton(attackJoy,FORKLIFT_UP_BUTTON),
+	         forkliftDownButton = new JoystickButton(attackJoy,FORKLIFT_DOWN_BUTTON);
 
 		public OI (){
 		pistonOutButton.whenPressed(new ToteMode());
