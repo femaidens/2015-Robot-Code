@@ -1,5 +1,7 @@
 package org.usfirst.frc.team2265.robot.subsystems;
 
+import org.usfirst.frc.team2265.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Ultrasonic;
@@ -21,20 +23,12 @@ public class Forklift extends Subsystem {
 	private final double FORKLIFTHEIGHT = 65.0;
 	
 	//Subsystem devices
-	private DigitalInput limitSwitch;
-	private Ultrasonic ultrasonicSensor;
-	private Counter counter;
-	private Talon topMotor;
-	private Talon bottomMotor;
-	
-	public Forklift() {
-		topMotor = new Talon(1); //ADD PORTS
-		bottomMotor = new Talon(2);
-		limitSwitch = new DigitalInput(1);
-		counter = new Counter(limitSwitch);
-		ultrasonicSensor = new Ultrasonic(1,2);
-	}
-
+	Talon topMotor = new Talon(RobotMap.topForkPort); 
+	Talon bottomMotor = new Talon(RobotMap.bottomForkPort);
+	DigitalInput limitSwitch = new DigitalInput(1);
+	Counter counter = new Counter(RobotMap.limitSwitchPort);
+	Ultrasonic ultrasonicSensor = new Ultrasonic(RobotMap.sonicPortOne, RobotMap.sonicPortTwo);
+ 
 	/*
 	 * method used to make the forklift go up
 	 * @see edu.wpi.first.wpilibj.command.Subsystem#initDefaultCommand()

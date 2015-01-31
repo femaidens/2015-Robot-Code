@@ -1,22 +1,19 @@
 package org.usfirst.frc.team2265.robot.subsystems;
 
+import org.usfirst.frc.team2265.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
-
+ 
 /**
  * The Manipulator subsystem is for the piston which will change the size of the forklift
- * to fit either the bin or tote. The extend(), retract(), and off() methods
+ * to fit either the bin or totes. The extend(), retract(), and off() methods
  * are for controlling the piston.
  */
 public class Manipulator extends Subsystem {
 	//Subsystem device
-	private DoubleSolenoid piston;
+	DoubleSolenoid piston = new DoubleSolenoid(RobotMap.pistonPortOne, RobotMap.pistonPortTwo);
 
-	public Manipulator() {
-		piston = new DoubleSolenoid(1, 2); //ADD PORTS
-	}
-	
 	/*
 	 * method used to extend the pistons
 	 * @see edu.wpi.first.wpilibj.command.Subsystem#initDefaultCommand()
@@ -58,4 +55,3 @@ public class Manipulator extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
 }
-
