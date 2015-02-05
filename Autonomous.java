@@ -34,6 +34,7 @@ public class Autonomous {
     public void tote() {
         forklift.up();
         moveForward(); 
+        forklift.down();
     }
     
 }
