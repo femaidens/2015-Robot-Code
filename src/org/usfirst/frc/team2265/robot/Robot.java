@@ -2,9 +2,11 @@
 package org.usfirst.frc.team2265.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+//import edu.wpi.first.wpilibj.TalonSRX;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+
 import org.usfirst.frc.team2265.robot.subsystems.Forklift;
 import org.usfirst.frc.team2265.robot.subsystems.Manipulator;
 import org.usfirst.frc.team2265.robot.subsystems.DriveControl;
@@ -20,8 +22,12 @@ import org.usfirst.frc.team2265.robot.OI;
  * directory.
  */
 public class Robot extends IterativeRobot {
-
-	public static MecanumDrive mecanumDrive = new MecanumDrive();
+    
+	//private static TalonSRX frontLeft;
+    //	private static TalonSRX rearLeft;
+	//private static TalonSRX frontRight;
+    //	private static TalonSRX rearRight; 
+	public static MecanumDrive mecanumDrive; 
 	public static OI oi;
 	public static DriveControl DriveControl;
 	public static Forklift forklift;
@@ -37,34 +43,42 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 		oi = new OI();
-        DriveControl = new DriveControl();		// This is the PID subsystem
+        DriveControl = new DriveControl();	
+        forklift = new Forklift();
+        manipulator = new Manipulator();
+        mecanumDrive = new MecanumDrive();
+        
+        // This is the PID subsystem
          // instantiate the command used for the autonomous period
+          
        
     }
+
 	
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
 	}
 
-    public void autonomousInit() {
+   public void autonomousInit() {
         // schedule the autonomous command (example)
-        if (autonomousCommand != null) autonomousCommand.start();
+       if (autonomousCommand != null) autonomousCommand.start();
     } 
 
     /**
      * This function is called periodically during autonomous
-     */
+      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
-    }
+    } 
 
-    public void teleopInit() {
+ public void teleopInit() {
 		// This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-    }
+        
+  }
 
     /**
      * This function is called when the disabled button is hit.
@@ -76,15 +90,17 @@ public class Robot extends IterativeRobot {
 
     /**
      * This function is called periodically during operator control
-     */
+ */
     public void teleopPeriodic() {
-        Scheduler.getInstance().run();
+       Scheduler.getInstance().run();
     }
     
     /**
      * This function is called periodically during test mode
-     */
+ */
     public void testPeriodic() {
-        LiveWindow.run();
-    }
+       LiveWindow.run();
+    } 
+    
 }
+

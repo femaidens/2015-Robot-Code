@@ -1,57 +1,44 @@
 package org.usfirst.frc.team2265.robot.subsystems;
 
 
-import org.usfirst.frc.team2265.robot.Robot;
+//import org.usfirst.frc.team2265.robot.Robot;
 
 
 //import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 //import edu.wpi.first.wpilibj.command.Subsystem;
-//import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.TalonSRX;
-//import edu.wpi.first.wpilibj.hal.CanTalonJNI;
-//import edu.wpi.first.wpilibj.Timer;
-//import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.CANTalon;
 
 /**
  *
  */
  
 public class DriveControl extends PIDSubsystem {
-	// I just changed the file lOL
-	// random edit
 	// Subsystem devices
-	private TalonSRX frontLeft;
-	private TalonSRX rearLeft;
-	private TalonSRX frontRight;
-	private TalonSRX rearRight; 
+	private CANTalon frontLeft;
+	private CANTalon rearLeft;
+	private CANTalon frontRight;
+	private CANTalon rearRight; 
 	
 	
 
 	public DriveControl(){
 		super("PID", 7.0, 0.0, 8.0, 0.0);			// The three doubles are the PID values, need to test for them later
-		setAbsoluteTolerance(0.2);					// Need to test for value
+		setAbsoluteTolerance(0.2);					// Need to test for values
 		getPIDController().setContinuous(true);		// Always run PID
 		
 		// Allows us to test for PID and F values
-		// should be 'isTest' not isSimulation
-		//if (Robot.isTest()) { 						
+		//if (!Robot.isReal() && !Robot.isSimulation()) { 						
 		//	getPIDController().setPID(0.5, 0.001, 2, 0.0);
 		//	setAbsoluteTolerance(5);
 		//}
 	}
 	
-	// Allows LiveWindow to be used with components
-	// LiveWindow.addActuator("DriveControl", "DriveControlController", getPIDController());		// CANTalons aren't livewindow sendable, use encoders instead?
-	// LiveWindow has to do with testing on the SmartDashboard
-	//LiveWindow.add
-	
     // No default commands
     public void initDefaultCommand() {}	   
     
     protected double returnPIDinput() {
-    	return frontLeft.get();
+    	return frontLeft.getOutputVoltage();
     }
 	
 	//Sets the motor speed based off of the PID output

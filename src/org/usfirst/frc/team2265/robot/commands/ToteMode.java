@@ -1,18 +1,16 @@
 package org.usfirst.frc.team2265.robot.commands;
 
-import org.usfirst.frc.team2265.robot.Robot;
-
+//import org.usfirst.frc.team2265.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
-
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+//import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 /**
- * The ToteMode command is to reduce the dize of the forklift to fit arounf the tote.
+ * The ToteMode command is to reduce the size of the forklift to fit around the tote.
  */
 public class ToteMode extends Command {
 
     public ToteMode() {
-    	requires(Robot.manipulator);
+    	//requires(Robot.manipulator);
     }
 
     // Called just before this Command runs the first time
@@ -23,7 +21,7 @@ public class ToteMode extends Command {
     protected void execute() {
     	//if already in the mode does nothings
     	//if off or in opposite mode does command
-    	if (Robot.manipulator.get().equals(Value.kForward_val))
+    	/*if (Robot.manipulator.get().equals(Value.kForward_val))
     	{ 
     		Robot.manipulator.retract();
     	}
@@ -31,15 +29,16 @@ public class ToteMode extends Command {
     	{
     		
     	}
-    	else if (Robot.manipulator.get().equals(Value.kOff_val))
+    /*	else if (Robot.manipulator.get().equals(Value.kOff_val))
     	{
-    		Robot.manipulator.retract();
+    		Robot.manipulator.off();
     	}
-    }
+    	*/ 
+    } 
 
     // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-    	if (Robot.manipulator.get().equals(Value.kForward_val))
+     protected boolean isFinished() {
+    	/*if (Robot.manipulator.get().equals(Value.kForward_val))
     	{ 
     		return true;
     	}
@@ -50,9 +49,9 @@ public class ToteMode extends Command {
     	else if (Robot.manipulator.get().equals(Value.kOff_val))
     	{
     		return false;
-    	}
-    	return false;
-    }
+    	} */
+    	return false; 
+    }  
 
     // Called once after isFinished returns true
     protected void end() {
