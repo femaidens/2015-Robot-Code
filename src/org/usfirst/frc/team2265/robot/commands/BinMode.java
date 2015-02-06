@@ -1,9 +1,7 @@
 package org.usfirst.frc.team2265.robot.commands;
 
 import org.usfirst.frc.team2265.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
-
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 /**
@@ -23,35 +21,30 @@ public class BinMode extends Command {
     protected void execute() {
     	//if already in the mode does nothings
     	//if off or in opposite mode does command
-    	if (Robot.manipulator.get().equals(Value.kForward_val))
-    	{ 
-    		
-    	}
-    	else if (Robot.manipulator.get().equals(Value.kReverse_val))
-    	{
+    	if (Robot.manipulator.get().equals(Value.kForward_val)) { 
+    		}
+    	else if (Robot.manipulator.get().equals(Value.kReverse_val)) {
     		Robot.manipulator.extend();
-    	}
-    	else if (Robot.manipulator.get().equals(Value.kOff_val))
-    	{
+    		}
+    	else if (Robot.manipulator.get().equals(Value.kOff_val)) {
     		Robot.manipulator.extend();
-    	}
+    		}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (Robot.manipulator.get().equals(Value.kForward_val))
-    	{ 
+    	if (Robot.manipulator.get().equals(Value.kForward_val)) { 
     		return false;
-    	}
-    	else if (Robot.manipulator.get().equals(Value.kReverse_val))
-    	{
+    		}
+    	else if (Robot.manipulator.get().equals(Value.kReverse_val)) {
     		return true;
-    	}
-    	else if (Robot.manipulator.get().equals(Value.kOff_val))
-    	{
+    		}
+    	else if (Robot.manipulator.get().equals(Value.kOff_val)) {
+    		return false;
+    		}
+    	else {
     		return false;
     	}
-    	return false;
     }
 
     // Called once after isFinished returns true

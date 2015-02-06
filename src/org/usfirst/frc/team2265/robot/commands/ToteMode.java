@@ -1,8 +1,8 @@
 package org.usfirst.frc.team2265.robot.commands;
 
-//import org.usfirst.frc.team2265.robot.Robot;
+import org.usfirst.frc.team2265.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
-//import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 /**
  * The ToteMode command is to reduce the size of the forklift to fit around the tote.
@@ -21,40 +21,36 @@ public class ToteMode extends Command {
     protected void execute() {
     	//if already in the mode does nothings
     	//if off or in opposite mode does command
-    	/*if (Robot.manipulator.get().equals(Value.kForward_val))
-    	{ 
+    	if (Robot.manipulator.get().equals(Value.kForward_val)) { 
     		Robot.manipulator.retract();
-    	}
-    	else if (Robot.manipulator.get().equals(Value.kReverse_val))
-    	{
-    		
-    	}
-    /*	else if (Robot.manipulator.get().equals(Value.kOff_val))
-    	{
+    		}
+    	
+    	else if (Robot.manipulator.get().equals(Value.kReverse_val)) {	
+    		}
+    	
+    	else if (Robot.manipulator.get().equals(Value.kOff_val)) {
     		Robot.manipulator.off();
-    	}
-    	*/ 
+    		}
     } 
 
     // Make this return true when this Command no longer needs to run execute()
      protected boolean isFinished() {
-    	/*if (Robot.manipulator.get().equals(Value.kForward_val))
-    	{ 
+    	if (Robot.manipulator.get().equals(Value.kForward_val)) { 
     		return true;
-    	}
-    	else if (Robot.manipulator.get().equals(Value.kReverse_val))
-    	{
+    		}
+    	else if (Robot.manipulator.get().equals(Value.kReverse_val)) {
     		return false;
-    	}
-    	else if (Robot.manipulator.get().equals(Value.kOff_val))
-    	{
+    		}
+    	else if (Robot.manipulator.get().equals(Value.kOff_val)) {
     		return false;
-    	} */
-    	return false; 
+    		} 
+    	else {
+    		return false; 
+    	}
     }  
 
     // Called once after isFinished returns true
-    protected void end() {
+   protected void end() {
     }
 
     // Called when another command which requires one or more of the same

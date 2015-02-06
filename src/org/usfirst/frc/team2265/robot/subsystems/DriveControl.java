@@ -1,12 +1,6 @@
 package org.usfirst.frc.team2265.robot.subsystems;
 
-
-//import org.usfirst.frc.team2265.robot.Robot;
-
-
-//import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
-//import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.CANTalon;
 
 /**
@@ -19,13 +13,14 @@ public class DriveControl extends PIDSubsystem {
 	private CANTalon rearLeft;
 	private CANTalon frontRight;
 	private CANTalon rearRight; 
-	
-	
 
 	public DriveControl(){
-		super("PID", 7.0, 0.0, 8.0, 0.0);			// The three doubles are the PID values, need to test for them later
-		setAbsoluteTolerance(0.2);					// Need to test for values
-		getPIDController().setContinuous(true);		// Always run PID
+		super("PID", 7.0, 0.0, 8.0, 0.0);			
+		// The three doubles are the PID values, need to test for them later
+		setAbsoluteTolerance(0.2);					
+		// Need to test for values
+		getPIDController().setContinuous(true);		
+		// Always run PID
 		
 		// Allows us to test for PID and F values
 		//if (!Robot.isReal() && !Robot.isSimulation()) { 						

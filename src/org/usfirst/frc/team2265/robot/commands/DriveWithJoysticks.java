@@ -1,7 +1,6 @@
 package org.usfirst.frc.team2265.robot.commands;
 
 import org.usfirst.frc.team2265.robot.Robot;
-//import org.usfirst.frc.team2265.robot.subsystems.MecanumDrive;
 import edu.wpi.first.wpilibj.command.Command;
 
 
@@ -9,7 +8,6 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class DriveWithJoysticks extends Command {
-	//public MecanumDrive mecanumDrive = new MecanumDrive();
     public DriveWithJoysticks() {
     	requires(Robot.mecanumDrive);
     	//requires(Robot.DriveControl);
@@ -37,7 +35,6 @@ public class DriveWithJoysticks extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.mecanumDrive.initDefaultCommand();
-    	
+    	Robot.mecanumDrive.initDefaultCommand();	
     }
 }

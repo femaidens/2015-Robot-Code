@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-
 import org.usfirst.frc.team2265.robot.subsystems.Forklift;
 import org.usfirst.frc.team2265.robot.subsystems.Manipulator;
 import org.usfirst.frc.team2265.robot.subsystems.DriveControl;
@@ -24,9 +23,9 @@ import org.usfirst.frc.team2265.robot.OI;
 public class Robot extends IterativeRobot {
     
 	//private static TalonSRX frontLeft;
-    //	private static TalonSRX rearLeft;
+    //private static TalonSRX rearLeft;
 	//private static TalonSRX frontRight;
-    //	private static TalonSRX rearRight; 
+    //private static TalonSRX rearRight; 
 	public static MecanumDrive mecanumDrive; 
 	public static OI oi;
 	public static DriveControl DriveControl;
@@ -45,7 +44,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         DriveControl = new DriveControl();	
         forklift = new Forklift();
-        manipulator = new Manipulator();
+        //manipulator = new Manipulator();
         mecanumDrive = new MecanumDrive();
         
         // This is the PID subsystem

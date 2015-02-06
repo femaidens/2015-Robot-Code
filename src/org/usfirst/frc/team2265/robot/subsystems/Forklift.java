@@ -25,8 +25,8 @@ public class Forklift extends Subsystem {
 	//Subsystem devices
 	Talon topMotor = new Talon(RobotMap.topForkPort); 
 	Talon bottomMotor = new Talon(RobotMap.bottomForkPort);
-	DigitalInput limitSwitch = new DigitalInput(1);
-	Counter counter = new Counter(RobotMap.limitSwitchPort);
+	DigitalInput limitSwitch = new DigitalInput(RobotMap.limitSwitchPort);
+	Counter counter = new Counter();
 	Ultrasonic ultrasonicSensor = new Ultrasonic(RobotMap.sonicPortOne, RobotMap.sonicPortTwo);
  
 	/*

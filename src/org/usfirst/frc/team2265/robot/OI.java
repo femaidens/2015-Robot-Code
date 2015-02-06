@@ -19,13 +19,13 @@ import org.usfirst.frc.team2265.robot.commands.ToteMode;
 public class OI {
 	//public static Joystick leftJoy= new Joystick(RobotMap.leftJoyPort);
 	//public static Joystick rightJoy=new Joystick(RobotMap.rightJoyPort);
-	//Joystick driveJoy = new Joystick(RobotMap.driveJoyPort);
+	public static Joystick driveJoy = new Joystick(RobotMap.driveJoyPort);
 	public static Joystick attackJoy = new Joystick(RobotMap.atkJoyPort);
  
 	Button pistonOutButton = new JoystickButton(attackJoy, RobotMap.pistonOutNum),
-			pistonInButton = new JoystickButton(attackJoy, RobotMap.pistonInNum),
-			forkliftUpButton = new JoystickButton(attackJoy, RobotMap.forkliftUpNum),
-			forkliftDownButton = new JoystickButton(attackJoy, RobotMap.forkliftDownNum);
+		pistonInButton = new JoystickButton(attackJoy, RobotMap.pistonInNum),
+		forkliftUpButton = new JoystickButton(attackJoy, RobotMap.forkliftUpNum),
+		forkliftDownButton = new JoystickButton(attackJoy, RobotMap.forkliftDownNum);
 
 	public OI (){
 		pistonOutButton.whenPressed(new ToteMode());
