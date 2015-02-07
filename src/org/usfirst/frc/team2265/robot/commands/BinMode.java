@@ -1,7 +1,9 @@
 package org.usfirst.frc.team2265.robot.commands;
 
 import org.usfirst.frc.team2265.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 /**
@@ -29,6 +31,9 @@ public class BinMode extends Command {
     	else if (Robot.manipulator.get().equals(Value.kOff_val)) {
     		Robot.manipulator.extend();
     		}
+    	else{
+    		SmartDashboard.putNumber("Pressure", Robot.manipulator.findPressure());
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
