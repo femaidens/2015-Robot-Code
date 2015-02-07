@@ -44,13 +44,11 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         DriveControl = new DriveControl();	
         forklift = new Forklift();
-        //manipulator = new Manipulator();
+        manipulator = new Manipulator();
         mecanumDrive = new MecanumDrive();
         
-        // This is the PID subsystem
-         // instantiate the command used for the autonomous period
+        manipulator.start();
           
-       
     }
 
 	
