@@ -41,12 +41,6 @@ public class ToteMode extends Command {
      protected boolean isFinished() {
     	if (Robot.manipulator.get().equals(Value.kForward_val)) { 
     		return true;
-    		}
-    	else if (Robot.manipulator.get().equals(Value.kReverse_val)) {
-    		return false;
-    		}
-    	else if (Robot.manipulator.get().equals(Value.kOff_val)) {
-    		return false;
     		} 
     	else {
     		return false; 
