@@ -19,7 +19,6 @@ import org.usfirst.frc.team2265.robot.commands.ToteMode;
 public class OI {
 	//public static Joystick leftJoy= new Joystick(RobotMap.leftJoyPort);
 	//public static Joystick rightJoy=new Joystick(RobotMap.rightJoyPort);
-	public static Joystick driveJoy = new Joystick(RobotMap.driveJoyPort);
 	public static Joystick attackJoy = new Joystick(RobotMap.atkJoyPort);
  
 	Button pistonOutButton = new JoystickButton(attackJoy, RobotMap.pistonOutNum),
