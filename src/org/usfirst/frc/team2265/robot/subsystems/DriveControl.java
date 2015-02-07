@@ -1,9 +1,10 @@
 package org.usfirst.frc.team2265.robot.subsystems;
 
-import edu.wpi.first.wpilibj.*;
+//import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.CANTalon;
+//import edu.wpi.first.wpilibj.PIDController;
 
 /**
  *
@@ -11,7 +12,7 @@ import edu.wpi.first.wpilibj.CANTalon;
  
 public class DriveControl extends PIDSubsystem {
 	// Subsystem devices
-	// makes a comment
+	// makes comment
 	public CANTalon frontLeft;
 	public CANTalon rearLeft;
 	public CANTalon frontRight;
@@ -20,16 +21,19 @@ public class DriveControl extends PIDSubsystem {
 	
 
 	public DriveControl(){
-		super("PID", 7.0, 0.0, 8.0, 0.0);			// The three doubles are the PID values, need to test for them later (also feedforward value)
-		setAbsoluteTolerance(0.2);					// Need to test for value
+		super("DriveControl", 7.0, 0.0, 8.0, 0.0);			// The three doubles are the PID values, need to test for them later
+		setAbsoluteTolerance(0.2);		
+		//getPIDController().setPID(0.05, 0, 0, 0); // Need to test for value
 		getPIDController().setContinuous(true);		// Always run PID
+	    LiveWindow.addActuator("DriveControl", "PID Controller", getPIDController());
+
 		
 		// Allows us to test for PID and F values
 		// should be 'isTest' not isSimulation
-		//if (Robot.isTest()) { 						
-		//	getPIDController().setPID(0.5, 0.001, 2, 0.0);
-		//	setAbsoluteTolerance(5);
-		//}
+	/*	if (Robot.isTest()) { 						
+			getPIDController().setPID(0.5, 0.001, 2, 0.0);
+			setAbsoluteTolerance(5);
+		} */
 	}
 	
 	// Allows LiveWindow to be used with components
@@ -38,9 +42,7 @@ public class DriveControl extends PIDSubsystem {
 	// LiveWindow.addActuator("drivetrain", "Drivetrain", Robot.drivetrain.getPIDController());
 	
 	//Puts the PID Controller on the subsystem for testing PID (and f) values
-     // LiveWindow.addActuator("DriveControl", "FrontLeft", frontLeft);
-	 // LiveWindow.addActuator("DriveControl", "PID Controller", getPIDController());
-	
+    //LiveWindow.addActuator("DriveControl", "FrontLeft", frontLeft);	
 	//LiveWindow.addActuator (String subsystem, String name, LiveWindowSendable component)
 	//LiveWindow.addActuator("DriveControl", "PIDSubsystem Controller", getPIDController());
 	//LiveWindow.addActuator("Pivot", "PIDSubsystem Controller", getPIDController());
@@ -52,7 +54,10 @@ public class DriveControl extends PIDSubsystem {
     public void initDefaultCommand() {}	   
     
     protected double returnPIDInput() {
-    	return frontLeft.getOutputVoltage();
+    	return frontLeft.getOutputVoltage();  
+    	/* return rearLeft.getOutputVoltage();
+    	return frontRight.getOutputVoltage();
+    	return rearRight.getOutputVoltage(); */
 	}
     
 	//Sets the motor speed based off of the PID output
