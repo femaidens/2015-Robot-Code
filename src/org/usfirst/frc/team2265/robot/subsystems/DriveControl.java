@@ -1,7 +1,8 @@
 package org.usfirst.frc.team2265.robot.subsystems;
 
+import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
-//import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.CANTalon;
 
 /**
@@ -19,7 +20,7 @@ public class DriveControl extends PIDSubsystem {
 	
 
 	public DriveControl(){
-		super("PID", 7.0, 0.0, 8.0, 0.0);			// The three doubles are the PID values, need to test for them later
+		super("PID", 7.0, 0.0, 8.0, 0.0);			// The three doubles are the PID values, need to test for them later (also feedforward value)
 		setAbsoluteTolerance(0.2);					// Need to test for value
 		getPIDController().setContinuous(true);		// Always run PID
 		
@@ -37,8 +38,8 @@ public class DriveControl extends PIDSubsystem {
 	// LiveWindow.addActuator("drivetrain", "Drivetrain", Robot.drivetrain.getPIDController());
 	
 	//Puts the PID Controller on the subsystem for testing PID (and f) values
-    //  LiveWindow.addActuator("DriveControl", "FrontLeft", frontLeft);
-	// LiveWindow.addActuator("DriveControl", "PID Controller", getPIDController());
+     // LiveWindow.addActuator("DriveControl", "FrontLeft", frontLeft);
+	 // LiveWindow.addActuator("DriveControl", "PID Controller", getPIDController());
 	
 	//LiveWindow.addActuator (String subsystem, String name, LiveWindowSendable component)
 	//LiveWindow.addActuator("DriveControl", "PIDSubsystem Controller", getPIDController());

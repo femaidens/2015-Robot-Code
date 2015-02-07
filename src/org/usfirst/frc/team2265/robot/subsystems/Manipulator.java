@@ -28,6 +28,15 @@ public class Manipulator extends Subsystem {
 		}
 	}
 	
+	/**
+	 * Gets the pressure of the compressor.
+	 * @return 
+	 */	
+	public double findPressure(){
+		double pressure = compressor.getCompressorCurrent();
+		return pressure;
+	}
+	
 	/*
 	 * method used to extend the pistons
 	 * @see edu.wpi.first.wpilibj.command.Subsystem#initDefaultCommand()
