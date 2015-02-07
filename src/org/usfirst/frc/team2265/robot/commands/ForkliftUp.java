@@ -14,7 +14,6 @@ public class ForkliftUp extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.forklift.initializeCounter();
     }
 
     // Called repeatedly when this Command is scheduled to run

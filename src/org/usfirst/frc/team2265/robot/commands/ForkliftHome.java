@@ -1,35 +1,42 @@
 package org.usfirst.frc.team2265.robot.commands;
 
-import org.usfirst.frc.team2265.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team2265.robot.Robot;
 
 /**
- * The ForkliftStop command is to stop the forklift from moving.
- */ 
-public class ForkliftStop extends Command {
+ *
+ */
+public class ForkliftHome extends Command {
 
-    public ForkliftStop() {
-    	requires(Robot.forklift);
+    public ForkliftHome() {
+        requires(Robot.forklift);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.forklift.initializeCounter();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.forklift.stop();
-    	Robot.forklift.setForkliftDisplay();
+    	if(Robot.forklift.getDistance() > 0)
+    	{
+    		Robot.forklift.down();
+    	}
+    	else {
+    		end();
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.forklift.stop();
+    	Robot.forklift.resetCounter();
+    	Robot.forklift.resetEncoder();
     }
 
     // Called when another command which requires one or more of the same

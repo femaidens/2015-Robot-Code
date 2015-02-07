@@ -30,8 +30,10 @@ public class RobotMap {
 	//SENSOR PORTS
 	public static int gyroPort = 1;
 	public static int limitSwitchPort = 0;
-	public static int sonicPortOne = 7;
-	public static int sonicPortTwo = 8;
+	//public static int sonicPortOne = 7;
+	//public static int sonicPortTwo = 8;
+	public static int encoderPortOne = 7;
+	public static int encoderPortTwo = 8;
 	
 	//SOLENOID/PISTON PORTS
 	public static int pistonPortOne = 1;
