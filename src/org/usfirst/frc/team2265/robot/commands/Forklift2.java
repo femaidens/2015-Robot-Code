@@ -1,31 +1,37 @@
 package org.usfirst.frc.team2265.robot.commands;
 
-import org.usfirst.frc.team2265.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team2265.robot.Robot;
 
 /**
- * The ForkliftUp command is to move the forklift up.
+ *
  */
-public class ForkliftUp extends Command {
+public class Forklift2 extends Command {
 
-    public ForkliftUp() {
-        requires(Robot.forklift);
+    public Forklift2() {
+    	requires(Robot.forklift);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.forklift.clock.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.forklift.up();
-    	Robot.forklift.setForkliftDisplay();
+    	if (Robot.forklift.getDistance() > Robot.forklift.TOTEHEIGHT + Robot.forklift.PLATHEIGHT + 3) {
+    		Robot.forklift.down();
+    	}
+    	else if (Robot.forklift.getDistance() < Robot.forklift.TOTEHEIGHT + Robot.forklift.PLATHEIGHT + 3) {
+    		Robot.forklift.up();
+    	}
+    	else {
+    		end();
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.forklift.isSwitchSet() || Robot.forklift.clock.hasPeriodPassed(1.0);
+        return Robot.forklift.getDistance() == Robot.forklift.TOTEHEIGHT + Robot.forklift.PLATHEIGHT + 3;
     }
 
     // Called once after isFinished returns true
