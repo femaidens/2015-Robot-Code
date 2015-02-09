@@ -10,7 +10,16 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class ToteMode extends Command {
     public ToteMode() {
+    	try{
         requires(Robot.manipulator);
+    	}
+    	catch(Exception e) {
+    		e.getCause();
+    		e.getClass();
+    	}
+    	finally{
+    		System.out.println("Got past the try-catch block!");
+    	}
     }
 
     // Called just before this Command runs the first time

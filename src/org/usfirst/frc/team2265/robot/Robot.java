@@ -36,11 +36,12 @@ public class Robot extends IterativeRobot {
 	 * used for any initialization code.
 	 */
 	public void robotInit() {
-		oi = new OI();
+		
 		DriveControl = new DriveControl();	
 		forklift = new Forklift();
 		manipulator = new Manipulator();
 		mecanumDrive = new MecanumDrive();
+		oi = new OI();
 		manipulator.start();
 	}
 
