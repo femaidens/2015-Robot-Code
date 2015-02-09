@@ -9,9 +9,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * The ToteMode command is to reduce the size of the forklift to fit around the tote.
  */
 public class ToteMode extends Command {
-
     public ToteMode() {
-    	requires(Robot.manipulator);
+        requires(Robot.manipulator);
     }
 
     // Called just before this Command runs the first time
@@ -19,40 +18,38 @@ public class ToteMode extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//if already in the mode does nothings
-    	//if off or in opposite mode does command
+    	/**
+    	 * If the robot is already in the mode, it does nothing.
+    	 * If the robot is off or in opposite mode, it does the command.
+    	 */
     	if (Robot.manipulator.get().equals(Value.kForward_val)) { 
-    		Robot.manipulator.retract();
-    		}
-    	
+            Robot.manipulator.retract();
+    	}
     	else if (Robot.manipulator.get().equals(Value.kReverse_val)) {	
-    		}
-    	
+    	}
     	else if (Robot.manipulator.get().equals(Value.kOff_val)) {
-    		Robot.manipulator.off();
-    		}
-    	
-    	else{
-    		SmartDashboard.putNumber("Pressure", Robot.manipulator.findPressure());
+            Robot.manipulator.off();
+    	}
+    	else {
+            SmartDashboard.putNumber("Pressure", Robot.manipulator.findPressure());
     	}
     } 
 
     // Make this return true when this Command no longer needs to run execute()
-     protected boolean isFinished() {
-    	if (Robot.manipulator.get().equals(Value.kForward_val)) { 
-    		return true;
-    		} 
-    	else {
-    		return false; 
-    	}
+    protected boolean isFinished() {
+        if (Robot.manipulator.get().equals(Value.kForward_val)) { 
+            return true;
+        } 
+        else {
+            return false; 
+        }
     }  
 
     // Called once after isFinished returns true
-   protected void end() {
+    protected void end() {
     }
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
+    // Called when another command which requires one or more of the same subsystems is scheduled to run
     protected void interrupted() {
     }
 }
