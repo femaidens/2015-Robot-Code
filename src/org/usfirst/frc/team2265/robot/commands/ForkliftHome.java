@@ -7,7 +7,6 @@ import org.usfirst.frc.team2265.robot.Robot;
  *
  */
 public class ForkliftHome extends Command {
-
     public ForkliftHome() {
         requires(Robot.forklift);
     }
@@ -18,13 +17,12 @@ public class ForkliftHome extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(Robot.forklift.getDistance() > 0)
-    	{
-    		Robot.forklift.down();
-    	}
-    	else {
-    		end();
-    	}
+        if(Robot.forklift.getDistance() > 0) {
+            Robot.forklift.down();
+        }
+        else {
+            end();
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -34,9 +32,9 @@ public class ForkliftHome extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.forklift.stop();
-    	Robot.forklift.resetCounter();
-    	Robot.forklift.resetEncoder();
+        Robot.forklift.stop();
+        Robot.forklift.resetCounter();
+        Robot.forklift.resetEncoder();
     }
 
     // Called when another command which requires one or more of the same
