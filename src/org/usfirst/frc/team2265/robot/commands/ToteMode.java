@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class ToteMode extends Command {
     public ToteMode() {
-    	requires(Robot.manipulator);
+        requires(Robot.manipulator);
     }
 
     // Called just before this Command runs the first time
@@ -36,13 +36,13 @@ public class ToteMode extends Command {
     } 
 
     // Make this return true when this Command no longer needs to run execute()
-     protected boolean isFinished() {
-    	if (Robot.manipulator.get().equals(Value.kForward_val)) { 
-    		return true;
-    	} 
-    	else {
-    		return false; 
-    	}
+    protected boolean isFinished() {
+        if (Robot.manipulator.get().equals(Value.kForward_val)) { 
+            return true;
+        } 
+        else {
+            return false; 
+        }
     }  
 
     // Called once after isFinished returns true
