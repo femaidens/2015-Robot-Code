@@ -23,7 +23,7 @@ public class ToteMode extends Command {
     	 * If the robot is off or in opposite mode, it does the command.
     	 */
     	if (Robot.manipulator.get().equals(Value.kForward_val)) { 
-    		Robot.manipulator.retract();
+            Robot.manipulator.retract();
     	}
     	else if (Robot.manipulator.get().equals(Value.kReverse_val)) {	
     	}
