@@ -32,7 +32,7 @@ public class Forklift extends Subsystem {
 	Encoder encoder = new Encoder(RobotMap.encoderPortOne, RobotMap.encoderPortTwo, true, Encoder.EncodingType.k4X);
 	//Ultrasonic ultrasonicSensor = new Ultrasonic(RobotMap.sonicPortOne, RobotMap.sonicPortTwo);
  
-	/*
+	/**
 	 * Contructor to set encoder settings.
 	 */
 	public Forklift() {
@@ -43,7 +43,7 @@ public class Forklift extends Subsystem {
 		encoder.setSamplesToAverage(7);
 	}
 	
-	/*
+	/**
 	 * method used to make the forklift go up
 	 * @see edu.wpi.first.wpilibj.command.Subsystem#initDefaultCommand()
 	 */
@@ -52,7 +52,7 @@ public class Forklift extends Subsystem {
 		bottomMotor.set(UP);
 	}
 	
-	/*
+	/**
 	 * method used to make the forklift go down
 	 * @see edu.wpi.first.wpilibj.command.Subsystem#initDefaultCommand()
 	 */
@@ -61,7 +61,7 @@ public class Forklift extends Subsystem {
 		bottomMotor.set(DOWN);
 	}
 	
-	/*
+	/**
 	 * method to stop the forklift
 	 * @see edu.wpi.first.wpilibj.command.Subsystem#initDefaultCommand()
 	 */
@@ -70,7 +70,7 @@ public class Forklift extends Subsystem {
 		bottomMotor.set(STOP);
 	}
 	
-	/*
+	/**
 	 * method to set the forklift display on the SmartDashboard
 	 * @see edu.wpi.first.wpilibj.command.Subsystem#initDefaultCommand()
 	 */
@@ -79,35 +79,35 @@ public class Forklift extends Subsystem {
 		SmartDashboard.putNumber("Forklift Level", ((this.getDistance()*NUMLEVELS)/FORKLIFTHEIGHT));
 	}
 	
-	/*
+	/**
 	 * Check if the switch has been set by checking if the counter is above 0.
 	 */
 	public boolean isSwitchSet() {
 		return counter.get() > 0;
 	}
 	
-	/*
+	/**
 	 * Reset counter for limit switch.
 	 */
 	public void resetCounter() {
-        counter.reset();
-    }
+        	counter.reset();
+	}
 	
-	/*
+	/**
 	 * Reset encoder. 
 	 */
 	public void resetEncoder() {
 		encoder.reset();
 	}
 	
-	/*
+	/**
 	 * Get distance moved from Home by encoder.
 	 */
 	public double getDistance() {
 		return encoder.getDistance();
 	}
 
-	/*
+	/**
 	 * no default command
 	 * @see edu.wpi.first.wpilibj.command.Subsystem#initDefaultCommand()
 	 */
