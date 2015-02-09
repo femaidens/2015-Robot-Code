@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.Joystick;
  */
 
 public class EDC extends Subsystem {
- /* point at which exp function becomes log function */
+ /* point at which exp function becomes log function! */
  private final double CROSSOVER = 0.5;
  
  /* base of log function 
