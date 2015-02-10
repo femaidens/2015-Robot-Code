@@ -27,6 +27,7 @@ public class MecanumDrive extends Subsystem {
 		driveY = driveJoystick.getRawAxis(2);
 		rotate = driveJoystick.getRawAxis(4);
 		mecanumDrive.mecanumDrive_Cartesian(driveX, driveY, rotate, gyroscope.getAngle());
+	
 		//mecanum cartesian drive command
 	}
 

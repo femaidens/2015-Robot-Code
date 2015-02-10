@@ -32,6 +32,7 @@ public class DriveControl extends PIDSubsystem {
 													// for them later
 		setAbsoluteTolerance(0.2);
 		// getPIDController().setPID(0.05, 0, 0, 0); // Need to test for value
+		driveJoystick= new Joystick(4);
 		getPIDController().setContinuous(true); // Always run PID
 		getPIDController().setSetpoint(driveJoystick.getRawAxis(4));
 		// Allows LiveWindow to be used with components
