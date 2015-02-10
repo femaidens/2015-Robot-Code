@@ -11,7 +11,6 @@ public class ForkliftDown extends Command {
 
     public ForkliftDown() {
     	requires(Robot.forklift);
-    	requires(Robot.liveWindow);
     	
     }
 

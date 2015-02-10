@@ -36,9 +36,9 @@ public class Forklift extends Subsystem {
 	public Timer clock = new Timer();
 	TalonSRX topMotor = new TalonSRX(RobotMap.topForkPort); 
 	TalonSRX bottomMotor = new TalonSRX(RobotMap.bottomForkPort);
-	DigitalInput limitSwitch = new DigitalInput(RobotMap.limitSwitchPort);
-	Counter counter = new Counter(limitSwitch);
-	Encoder encoder = new Encoder(RobotMap.encoderPortOne, RobotMap.encoderPortTwo, true, Encoder.EncodingType.k4X);
+	public static DigitalInput limitSwitch = new DigitalInput(RobotMap.limitSwitchPort);
+	public static Counter counter = new Counter(limitSwitch);
+	public static Encoder encoder = new Encoder(RobotMap.encoderPortOne, RobotMap.encoderPortTwo, true, Encoder.EncodingType.k4X);
 	//Ultrasonic ultrasonicSensor = new Ultrasonic(RobotMap.sonicPortOne, RobotMap.sonicPortTwo);
  
 	/**
