@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.TalonSRX;
 //import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Encoder;
 
@@ -17,30 +18,38 @@ import edu.wpi.first.wpilibj.Encoder;
  * the motors attached to the pulley.
  */
 public class Forklift extends Subsystem {
-	// Constants for some useful speeds
+	// Constants for some useful constants
 	private static final double UP = 0.75;
 	private static final double DOWN = -0.75;
 	private static final double STOP = 0.0;
 	private final double NUMLEVELS = 5.0; //these values are open to changes
 	private final double FORKLIFTHEIGHT = 60.0;
+	private final double DISTANCEPERPULSE = 5;
+	private final int SAMPLESTOAVG = 7;
+	private final double MAXPERIOD = .1;
+	private final double MINPERIOD = 10;
+	public final double TOTEHEIGHT = 12;
+	public final double BINHEIGHT = 29;
+	public final double PLATHEIGHT = 2;
 	
 	//Subsystem devices
+	public Timer clock = new Timer();
 	TalonSRX topMotor = new TalonSRX(RobotMap.topForkPort); 
 	TalonSRX bottomMotor = new TalonSRX(RobotMap.bottomForkPort);
-	DigitalInput limitSwitch = new DigitalInput(RobotMap.limitSwitchPort);
-	Counter counter = new Counter(limitSwitch);
-	Encoder encoder = new Encoder(RobotMap.encoderPortOne, RobotMap.encoderPortTwo, true, Encoder.EncodingType.k4X);
+	public static DigitalInput limitSwitch = new DigitalInput(RobotMap.limitSwitchPort);
+	public static Counter counter = new Counter(limitSwitch);
+	public static Encoder encoder = new Encoder(RobotMap.encoderPortOne, RobotMap.encoderPortTwo, true, Encoder.EncodingType.k4X);
 	//Ultrasonic ultrasonicSensor = new Ultrasonic(RobotMap.sonicPortOne, RobotMap.sonicPortTwo);
  
 	/**
 	 * Contructor to set encoder settings.
 	 */
 	public Forklift() {
-		encoder.setMaxPeriod(.1);
-		encoder.setMinRate(10);
-		encoder.setDistancePerPulse(5);
-		encoder.setReverseDirection(true);
-		encoder.setSamplesToAverage(7);
+		encoder.setMaxPeriod(MAXPERIOD);
+		encoder.setMinRate(MINPERIOD);
+		encoder.setDistancePerPulse(DISTANCEPERPULSE);
+		//encoder.setReverseDirection(true);
+		encoder.setSamplesToAverage(SAMPLESTOAVG);
 	}
 	
 	/**

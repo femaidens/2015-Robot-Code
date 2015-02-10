@@ -22,12 +22,13 @@ public class Robot extends IterativeRobot {
 	//private static TalonSRX frontLeft;
 	//private static TalonSRX rearLeft;
 	//private static TalonSRX frontRight;
-	//private static TalonSRX rearRight; 
+	//private static TalonSRX rearRight;  
 	public static MecanumDrive mecanumDrive; 
 	public static OI oi;
 	public static DriveControl DriveControl;
 	public static Forklift forklift;
 	public static Manipulator manipulator; 
+	public static LiveWindow liveWindow;
 
 	Command autonomousCommand;
  
@@ -43,6 +44,9 @@ public class Robot extends IterativeRobot {
 		mecanumDrive = new MecanumDrive();
 		oi = new OI();
 		manipulator.start();
+		liveWindow.addSensor("Forklift", "encoder", forklift.encoder);
+		liveWindow.addSensor("Forklift", "limit switch", forklift.limitSwitch);
+		liveWindow.addSensor("Forklift", "counter", forklift.counter);
 	}
 
 	public void disabledPeriodic() {
