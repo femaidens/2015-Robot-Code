@@ -18,10 +18,10 @@ public class Forklift5 extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Robot.forklift.getDistance() > Robot.forklift.BINHEIGHT + Robot.forklift.TOTEHEIGHT + 3) {
+    	if (Robot.forklift.get() > Robot.forklift.BINHEIGHT + Robot.forklift.TOTEHEIGHT + 3) {
     		Robot.forklift.down();
     	}
-    	else if (Robot.forklift.getDistance() < Robot.forklift.BINHEIGHT + Robot.forklift.TOTEHEIGHT + 3) {
+    	else if (Robot.forklift.get() < Robot.forklift.BINHEIGHT + Robot.forklift.TOTEHEIGHT + 3) {
     		Robot.forklift.up();
     	}
     	else {
@@ -31,7 +31,7 @@ public class Forklift5 extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.forklift.getDistance() < Robot.forklift.BINHEIGHT + Robot.forklift.TOTEHEIGHT + 3;
+        return Robot.forklift.get() < Robot.forklift.BINHEIGHT + Robot.forklift.TOTEHEIGHT + 3;
     }
 
     // Called once after isFinished returns true

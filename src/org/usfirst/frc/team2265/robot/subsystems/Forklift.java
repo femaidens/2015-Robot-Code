@@ -24,10 +24,7 @@ public class Forklift extends Subsystem {
 	private static final double STOP = 0.0;
 	private final double NUMLEVELS = 5.0; //these values are open to changes
 	private final double FORKLIFTHEIGHT = 60.0;
-	private final double DISTANCEPERPULSE = 5;
-	private final int SAMPLESTOAVG = 7;
-	private final double MAXPERIOD = .1;
-	private final double MINPERIOD = 10;
+	private final int SAMPLESTOAVG = 127;
 	public final double TOTEHEIGHT = 12;
 	public final double BINHEIGHT = 29;
 	public final double PLATHEIGHT = 2;
@@ -45,9 +42,6 @@ public class Forklift extends Subsystem {
 	 * Contructor to set encoder settings.
 	 */
 	public Forklift() {
-		encoder.setMaxPeriod(MAXPERIOD);
-		encoder.setMinRate(MINPERIOD);
-		encoder.setDistancePerPulse(DISTANCEPERPULSE);
 		//encoder.setReverseDirection(true);
 		encoder.setSamplesToAverage(SAMPLESTOAVG);
 	}
@@ -85,7 +79,7 @@ public class Forklift extends Subsystem {
 	 */
 	public void setForkliftDisplay() {
 		//SmartDashboard.putNumber("Forklift Level", ((ultrasonicSensor.getRangeInches()*NUMLEVELS)/FORKLIFTHEIGHT));
-		SmartDashboard.putNumber("Forklift Level", ((this.getDistance()*NUMLEVELS)/FORKLIFTHEIGHT));
+		SmartDashboard.putNumber("Forklift Level", ((this.get()*NUMLEVELS)/FORKLIFTHEIGHT));
 	}
 	
 	/**
@@ -112,8 +106,8 @@ public class Forklift extends Subsystem {
 	/**
 	 * Get distance moved from Home by encoder.
 	 */
-	public double getDistance() {
-		return encoder.getDistance();
+	public double get() {
+		return encoder.get();
 	}
 
 	/**
