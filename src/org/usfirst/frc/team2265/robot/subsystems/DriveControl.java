@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 //import edu.wpi.first.wpilibj.PIDController;
@@ -39,11 +40,6 @@ public class DriveControl extends PIDSubsystem {
 		// values
 		LiveWindow.addActuator("DriveControl", "PID Controller", getPIDController());
 		
-		/* frontLeft.set(driveJoystick.getRawAxis(4));
-		rearLeft.set(driveJoystick.getRawAxis(4));
-		frontRight.set(driveJoystick.getRawAxis(4));
-		rearRight.set(driveJoystick.getRawAxis(4)); */
-		
 
 		// Allows us to test for PID and F values
 		// should be 'isTest' not isSimulation
@@ -57,21 +53,18 @@ public class DriveControl extends PIDSubsystem {
 	public void initDefaultCommand() {
 	}
 
+	/**
+	 * The log method puts interesting information to the SmartDashboard.
+	 */
+	public void log() {
+		//not entirely sure which of these we want, so i wanted to account for both just in case
+        SmartDashboard.putNumber("Gyro PID Out", gyroscope.pidGet());
+        SmartDashboard.putData("Rotation", (Gyro) gyroscope);
+    }
+	
 	protected double returnPIDInput() {
 		System.out.println(gyroscope.pidGet());
 		return gyroscope.pidGet();
-		
-	/*	double[] outputVoltage = new double[4];
-		outputVoltage[1] = frontLeft.getOutputVoltage();
-		outputVoltage[2] = rearLeft.getOutputVoltage();
-		outputVoltage[3] = frontRight.getOutputVoltage();
-		outputVoltage[4] = rearRight.getOutputVoltage();
-		return outputVoltage; */
-		
-		/*
-		 * return rearLeft.getOutputVoltage(); return
-		 * frontRight.getOutputVoltage(); return rearRight.getOutputVoltage();
-		 */
 	}
 
 	// Sets the motor speed based off of the PID output
@@ -81,10 +74,4 @@ public class DriveControl extends PIDSubsystem {
 		frontRight.pidWrite(output);
 		rearRight.pidWrite(output);
 	}
-
-	/*
-	 * @Override protected double returnPIDInput() { // TODO Auto-generated
-	 * method stub return 0; }
-	 */
-
 }
