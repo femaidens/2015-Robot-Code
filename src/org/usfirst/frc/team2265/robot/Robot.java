@@ -22,7 +22,7 @@ public class Robot extends IterativeRobot {
 	//private static TalonSRX frontLeft;
 	//private static TalonSRX rearLeft;
 	//private static TalonSRX frontRight;
-	//private static TalonSRX rearRight; 
+	//private static TalonSRX rearRight;  
 	public static MecanumDrive mecanumDrive; 
 	public static OI oi;
 	public static DriveControl DriveControl;
