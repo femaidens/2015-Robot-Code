@@ -11,6 +11,7 @@ public class ForkliftDown extends Command {
 
     public ForkliftDown() {
     	requires(Robot.forklift);
+    	requires(Robot.liveWindow);
     	
     }
 
@@ -33,7 +34,6 @@ public class ForkliftDown extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.forklift.stop();
-    	System.out.println(Robot.forklift.getDistance());
     }
 
     // Called when another command which requires one or more of the same

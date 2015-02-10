@@ -28,6 +28,7 @@ public class Robot extends IterativeRobot {
 	public static DriveControl DriveControl;
 	public static Forklift forklift;
 	public static Manipulator manipulator; 
+	public static LiveWindow liveWindow;
 
 	Command autonomousCommand;
  
@@ -42,6 +43,9 @@ public class Robot extends IterativeRobot {
 		manipulator = new Manipulator();
 		mecanumDrive = new MecanumDrive();
 		manipulator.start();
+		liveWindow.addSensor("Forklift", "encoder", forklift.encoder);
+		liveWindow.addSensor("Forklift", "limit switch", forklift.limitSwitch);
+		liveWindow.addSensor("Forklift", "counter", forklift.counter);
 	}
 
 	public void disabledPeriodic() {
