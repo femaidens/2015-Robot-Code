@@ -29,7 +29,8 @@ public class RobotMap {
 	
 	//SENSOR PORTS
 	public static int gyroPort = 1;
-	public static int limitSwitchPort = 0;
+	public static int limitSwitchPortTop = 0;
+	public static int limitSwitchPortBottom = 9;
 	//public static int sonicPortOne = 7;
 	//public static int sonicPortTwo = 8;
 	public static int encoderPortOne = 7;

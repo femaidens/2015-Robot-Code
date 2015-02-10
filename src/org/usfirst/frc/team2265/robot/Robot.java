@@ -45,8 +45,6 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		manipulator.start();
 		liveWindow.addSensor("Forklift", "encoder", forklift.encoder);
-		liveWindow.addSensor("Forklift", "limit switch", forklift.limitSwitch);
-		liveWindow.addSensor("Forklift", "counter", forklift.counter);
 	}
 
 	public void disabledPeriodic() {

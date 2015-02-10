@@ -33,8 +33,10 @@ public class Forklift extends Subsystem {
 	public Timer clock = new Timer();
 	TalonSRX topMotor = new TalonSRX(RobotMap.topForkPort); 
 	TalonSRX bottomMotor = new TalonSRX(RobotMap.bottomForkPort);
-	public static DigitalInput limitSwitch = new DigitalInput(RobotMap.limitSwitchPort);
-	public static Counter counter = new Counter(limitSwitch);
+	public static DigitalInput limitSwitchTop = new DigitalInput(RobotMap.limitSwitchPortTop);
+	public static DigitalInput limitSwitchBottom = new DigitalInput(RobotMap.limitSwitchPortBottom);
+	public static Counter counterTop = new Counter(limitSwitchTop);
+	public static Counter counterBottom = new Counter(limitSwitchBottom);
 	public static Encoder encoder = new Encoder(RobotMap.encoderPortOne, RobotMap.encoderPortTwo, true, Encoder.EncodingType.k4X);
 	//Ultrasonic ultrasonicSensor = new Ultrasonic(RobotMap.sonicPortOne, RobotMap.sonicPortTwo);
  
@@ -86,14 +88,15 @@ public class Forklift extends Subsystem {
 	 * Check if the switch has been set by checking if the counter is above 0.
 	 */
 	public boolean isSwitchSet() {
-		return counter.get() > 0;
+		return counterTop.get() > 0 || counterBottom.get() > 0;
 	}
 	
 	/**
 	 * Reset counter for limit switch.
 	 */
 	public void resetCounter() {
-        	counter.reset();
+        	counterTop.reset();
+        	counterBottom.reset();
 	}
 	
 	/**
