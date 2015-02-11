@@ -9,10 +9,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
   
 public class MecanumDrive extends Subsystem {
 	//creation of talon motors, mecDrive, and gyroscope
-	CANTalon frontLeft = new CANTalon(RobotMap.frontLeftPort);
-	CANTalon rearLeft = new CANTalon(RobotMap.rearLeftPort);
-	CANTalon frontRight = new CANTalon(RobotMap.frontRightPort);
-	CANTalon rearRight = new CANTalon(RobotMap.rearRightPort);
+	public CANTalon frontLeft = new CANTalon(RobotMap.frontLeftPort);
+	public CANTalon rearLeft = new CANTalon(RobotMap.rearLeftPort);
+	public CANTalon frontRight = new CANTalon(RobotMap.frontRightPort);
+	public CANTalon rearRight = new CANTalon(RobotMap.rearRightPort);
 	RobotDrive mecanumDrive = new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
 	Gyro gyroscope = new Gyro(RobotMap.gyroPort);
 	

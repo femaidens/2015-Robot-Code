@@ -35,6 +35,12 @@ public class RobotMap {
 	//public static int sonicPortTwo = 8;
 	public static int encoderPortOne = 7;
 	public static int encoderPortTwo = 8;
+	//fix ports
+	public static int frontLeftEnco = 1;
+	public static int frontRightEnco = 2;
+	public static int rearLeftEnco = 3;
+	public static int rearRightEnco = 4;
+	
 	
 	//SOLENOID/PISTON PORTS
 	public static int pistonPortOne = 1;

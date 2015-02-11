@@ -37,7 +37,7 @@ public class Forklift extends Subsystem {
 	public static DigitalInput limitSwitchBottom = new DigitalInput(RobotMap.limitSwitchPortBottom);
 	public static Counter counterTop = new Counter(limitSwitchTop);
 	public static Counter counterBottom = new Counter(limitSwitchBottom);
-	public static Encoder encoder = new Encoder(RobotMap.encoderPortOne, RobotMap.encoderPortTwo, true, Encoder.EncodingType.k4X);
+	public Encoder encoder = new Encoder(RobotMap.encoderPortOne, RobotMap.encoderPortTwo, true, Encoder.EncodingType.k4X);
 	//Ultrasonic ultrasonicSensor = new Ultrasonic(RobotMap.sonicPortOne, RobotMap.sonicPortTwo);
  
 	/**
