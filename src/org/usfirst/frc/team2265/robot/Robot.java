@@ -44,7 +44,6 @@ public class Robot extends IterativeRobot {
 		mecanumDrive = new MecanumDrive();
 		oi = new OI();
 		manipulator.start();
-		liveWindow.addSensor("Forklift", "encoder", forklift.encoder);
 	}
 
 	public void disabledPeriodic() {

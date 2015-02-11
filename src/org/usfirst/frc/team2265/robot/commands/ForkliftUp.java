@@ -14,13 +14,13 @@ public class ForkliftUp extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.forklift.clock.reset();
     	Robot.forklift.clock.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.forklift.up();
-    	Robot.forklift.setForkliftDisplay();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -31,6 +31,7 @@ public class ForkliftUp extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.forklift.stop();
+    	Robot.forklift.setEncoderValue();
     }
 
     // Called when another command which requires one or more of the same

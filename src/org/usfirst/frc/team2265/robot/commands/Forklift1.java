@@ -18,10 +18,10 @@ public class Forklift1 extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Robot.forklift.get() > 3) {
+    	if (Robot.forklift.getEncoderValue() > 3) {
     		Robot.forklift.down();
     	}
-    	else if (Robot.forklift.get() < 3) {
+    	else if (Robot.forklift.getEncoderValue() < 3) {
     		Robot.forklift.up();
     	}
     	else {
@@ -31,7 +31,7 @@ public class Forklift1 extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.forklift.get() == 3;
+        return Robot.forklift.getEncoderValue() == 3;
     }
 
     // Called once after isFinished returns true

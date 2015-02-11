@@ -22,8 +22,6 @@ public class Forklift extends Subsystem {
 	private static final double UP = 0.75;
 	private static final double DOWN = -0.75;
 	private static final double STOP = 0.0;
-	private final double NUMLEVELS = 5.0; //these values are open to changes
-	private final double FORKLIFTHEIGHT = 60.0;
 	private final int SAMPLESTOAVG = 127;
 	public final double TOTEHEIGHT = 12;
 	public final double BINHEIGHT = 29;
@@ -79,9 +77,9 @@ public class Forklift extends Subsystem {
 	 * method to set the forklift display on the SmartDashboard
 	 * @see edu.wpi.first.wpilibj.command.Subsystem#initDefaultCommand()
 	 */
-	public void setForkliftDisplay() {
+	public void setForkliftDisplay(int lvl) {
 		//SmartDashboard.putNumber("Forklift Level", ((ultrasonicSensor.getRangeInches()*NUMLEVELS)/FORKLIFTHEIGHT));
-		SmartDashboard.putNumber("Forklift Level", ((this.get()*NUMLEVELS)/FORKLIFTHEIGHT));
+		SmartDashboard.putNumber("Forklift Level", lvl);
 	}
 	
 	/**
@@ -106,10 +104,17 @@ public class Forklift extends Subsystem {
 		encoder.reset();
 	}
 	
+	/*
+	 * 
+	 */
+	public void setEncoderValue() {
+		SmartDashboard.putNumber("Encoder Value", encoder.get());
+	}
+	
 	/**
 	 * Get distance moved from Home by encoder.
 	 */
-	public double get() {
+	public double getEncoderValue() {
 		return encoder.get();
 	}
 

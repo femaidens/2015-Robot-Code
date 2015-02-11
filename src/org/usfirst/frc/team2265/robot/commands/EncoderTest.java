@@ -9,7 +9,7 @@ import org.usfirst.frc.team2265.robot.commands.ForkliftDown;
  */
 public class EncoderTest extends CommandGroup {
     
-    public  EncoderTest() {
+    public EncoderTest() {
         addSequential(new ForkliftUp());
         addSequential(new ForkliftDown());
     }
