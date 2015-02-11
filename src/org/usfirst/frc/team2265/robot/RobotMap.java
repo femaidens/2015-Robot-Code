@@ -33,13 +33,17 @@ public class RobotMap {
 	public static int limitSwitchPortBottom = 9;
 	//public static int sonicPortOne = 7;
 	//public static int sonicPortTwo = 8;
-	public static int encoderPortOne = 7;
-	public static int encoderPortTwo = 8;
+	public static int forkliftEncoderPortOne = 7;
+	public static int forkliftEncoderPortTwo = 8;
 	//fix ports
-	public static int frontLeftEnco = 1;
-	public static int frontRightEnco = 2;
-	public static int rearLeftEnco = 3;
-	public static int rearRightEnco = 4;
+	public static int frontLeftEncoPortOne = 1;
+	public static int frontLeftEncoPortTwo = 1;
+	public static int frontRightEncoPortOne = 2;
+	public static int frontRightEncoPortTwo = 2;
+	public static int rearLeftEncoPortOne = 3;
+	public static int rearLeftEncoPortTwo = 4;
+	public static int rearRightEncoPortOne = 4;
+	public static int rearRightEncoPortTwo = 4;
 	
 	
 	//SOLENOID/PISTON PORTS

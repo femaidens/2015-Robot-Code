@@ -3,6 +3,8 @@ package org.usfirst.frc.team2265.robot.subsystems;
 //import edu.wpi.first.wpilibj.*;
 //import java.lang.reflect.Array;
 
+import org.usfirst.frc.team2265.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.CANTalon;
@@ -20,12 +22,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class DriveControl extends PIDSubsystem {
 	// Subsystem devices
 	// makes comment
-	public CANTalon frontLeft;
-	public CANTalon rearLeft;
-	public CANTalon frontRight;
-	public CANTalon rearRight;
-	public Gyro gyroscope;
-	public Joystick driveJoystick;
+	public CANTalon frontLeft = new CANTalon(RobotMap.frontLeftPort);
+	public CANTalon rearLeft = new CANTalon(RobotMap.rearLeftPort);
+	public CANTalon frontRight = new CANTalon(RobotMap.frontRightPort);
+	public CANTalon rearRight = new CANTalon(RobotMap.rearRightPort);
+	public Gyro gyroscope = new Gyro(RobotMap.gyroPort);
+	public Joystick driveJoystick = new Joystick(4);
 
 	public DriveControl() {
 		super("DriveControl", 7.0, 0.0, 8.0, 0.0); // The three doubles are the
@@ -33,7 +35,6 @@ public class DriveControl extends PIDSubsystem {
 													// for them later
 		setAbsoluteTolerance(0.2);
 		// getPIDController().setPID(0.05, 0, 0, 0); // Need to test for value
-		driveJoystick= new Joystick(4);
 		getPIDController().setContinuous(true); // Always run PID
 		getPIDController().setSetpoint(driveJoystick.getRawAxis(4));
 		// Allows LiveWindow to be used with components

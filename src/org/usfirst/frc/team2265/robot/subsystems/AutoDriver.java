@@ -10,16 +10,16 @@ import edu.wpi.first.wpilibj.Encoder;
   
 public class AutoDriver extends Subsystem {
 	//creation of talon motors, mecDrive, and gyroscope
-	CANTalon frontLeft;
-	CANTalon rearLeft;
-	CANTalon frontRight;
-	CANTalon rearRight;
+	public CANTalon frontLeft = new CANTalon(RobotMap.frontLeftPort);
+	public CANTalon rearLeft = new CANTalon(RobotMap.rearLeftPort);
+	public CANTalon frontRight = new CANTalon(RobotMap.frontRightPort);
+	public CANTalon rearRight = new CANTalon(RobotMap.rearRightPort);
 	RobotDrive autonDrive = new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
-	Gyro gyroscope;
-	Encoder frontLeftEnco;
-	Encoder frontRightEnco;
-	Encoder rearLeftEnco;
-	Encoder rearRightEnco;
+	Gyro gyroscope = new Gyro(RobotMap.gyroPort);
+	Encoder frontLeftEnco = new Encoder(RobotMap.frontLeftEncoPortOne, RobotMap.frontLeftEncoPortTwo);
+	Encoder frontRightEnco = new Encoder(RobotMap.frontRightEncoPortOne, RobotMap.frontRightEncoPortTwo);
+	Encoder rearLeftEnco = new Encoder(RobotMap.rearLeftEncoPortOne, RobotMap.rearLeftEncoPortTwo);
+	Encoder rearRightEnco = new Encoder(RobotMap.rearRightEncoPortOne, RobotMap.rearRightEncoPortTwo);
 	public int frontLeftEnCount = frontLeftEnco.getRaw();
 	public int frontRightEnCount = frontRightEnco.getRaw();
 	
