@@ -37,13 +37,14 @@ public class Forklift extends Subsystem {
 	public static Counter counterBottom = new Counter(limitSwitchBottom);
 	public Encoder encoder = new Encoder(RobotMap.forkliftEncoderPortOne, RobotMap.forkliftEncoderPortOne, true, Encoder.EncodingType.k4X);
 	//Ultrasonic ultrasonicSensor = new Ultrasonic(RobotMap.sonicPortOne, RobotMap.sonicPortTwo);
+	public double curLevel;
  
 	/**
 	 * Contructor to set encoder settings.
 	 */
 	public Forklift() {
-		//encoder.setReverseDirection(true);
 		encoder.setSamplesToAverage(SAMPLESTOAVG);
+		curLevel = 0; 
 	}
 	
 	/**
@@ -77,9 +78,23 @@ public class Forklift extends Subsystem {
 	 * method to set the forklift display on the SmartDashboard
 	 * @see edu.wpi.first.wpilibj.command.Subsystem#initDefaultCommand()
 	 */
-	public void setForkliftDisplay(int lvl) {
+	public void setForkliftDisplay(double lvl) {
 		//SmartDashboard.putNumber("Forklift Level", ((ultrasonicSensor.getRangeInches()*NUMLEVELS)/FORKLIFTHEIGHT));
 		SmartDashboard.putNumber("Forklift Level", lvl);
+	}
+	
+	/*
+	 * sets current level
+	 */
+	public void setLevel(double lvl) {
+		curLevel = lvl;
+	}
+	
+	/*
+	 * returns current level
+	 */
+	public double getLevel() {
+		return curLevel;
 	}
 	
 	/**
