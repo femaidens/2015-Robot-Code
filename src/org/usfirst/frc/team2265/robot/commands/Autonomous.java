@@ -8,9 +8,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Autonomous extends CommandGroup {
     
     public  Autonomous() {
-    	addSequential(new Forklift0());
-    	addSequential(new Forklift2());
-    	addSequential(new Forklift0());
+    	addSequential(new ForkliftHome());
+    	addSequential(new ForkliftUp());
+    	addSequential(new ForkliftHome());
     	addSequential(new AutonomousDrive());
         // Add Commands here:
         // e.g. addSequential(new Command1());
