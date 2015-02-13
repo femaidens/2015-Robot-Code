@@ -42,28 +42,6 @@ public class AutoDriver extends Subsystem {
 		frontRightEnCount = frontRightEnco.getRaw();
 		frontLeftEnCount = frontLeftEnco.getRaw();
 	}
-	
-	public double getVelocity(double x){
-	    frontLeftEnco.setDistancePerPulse(x);
-	    frontRightEnco.setDistancePerPulse(x);
-	    rearLeftEnco.setDistancePerPulse(x);
-	    rearRightEnco.setDistancePerPulse(x);
-	    
-	    double velocityY1 = frontLeftEnco.getRate();
-	    double velocityY2 = frontRightEnco.getRate();
-	    double velocityY3 = rearLeftEnco.getRate();
-	    double velocityY4 = rearRightEnco.getRate();
-	    double totalVelocityY = velocityY1 + velocityY2 + velocityY3 + velocityY4;
-	    
-	    double velocityX1 = velocityY1 * -1;
-	    double velocityX2 = velocityY2;
-	    double velocityX3 = velocityY3;
-	    double velocityX4 = velocityY4 * -1;
-	    double totalVelocityX = velocityX1 + velocityX2 + velocityX3 + velocityX4;
-	    
-	    double totalVelocity = Math.pow(Math.pow(totalVelocityY, 2) + Math.pow(totalVelocityX, 2), 1/2);
-	    return totalVelocity;
-	  }
 
 	public double getVelocity(double x){
 	    frontLeftEnco.setDistancePerPulse(x);
