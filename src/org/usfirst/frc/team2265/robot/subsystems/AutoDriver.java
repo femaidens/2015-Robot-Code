@@ -1,10 +1,12 @@
 package org.usfirst.frc.team2265.robot.subsystems;
 
 import org.usfirst.frc.team2265.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Encoder;
   
@@ -20,6 +22,7 @@ public class AutoDriver extends Subsystem {
 	Encoder frontRightEnco = new Encoder(RobotMap.frontRightEncoPortOne, RobotMap.frontRightEncoPortTwo);
 	Encoder rearLeftEnco = new Encoder(RobotMap.rearLeftEncoPortOne, RobotMap.rearLeftEncoPortTwo);
 	Encoder rearRightEnco = new Encoder(RobotMap.rearRightEncoPortOne, RobotMap.rearRightEncoPortTwo);
+	Timer timer = new Timer();
 	public int frontLeftEnCount = frontLeftEnco.getRaw();
 	public int frontRightEnCount = frontRightEnco.getRaw();
 	
@@ -42,8 +45,8 @@ public class AutoDriver extends Subsystem {
 		frontRightEnCount = frontRightEnco.getRaw();
 		frontLeftEnCount = frontLeftEnco.getRaw();
 	}
-
-	public double getVelocity(double x){
+	// Put methods for controlling this subsystem here. Call these from Commands.
+	private double getVelocity(double x){
 	    frontLeftEnco.setDistancePerPulse(x);
 	    frontRightEnco.setDistancePerPulse(x);
 	    rearLeftEnco.setDistancePerPulse(x);
@@ -64,6 +67,14 @@ public class AutoDriver extends Subsystem {
 	    double totalVelocity = Math.pow(Math.pow(totalVelocityY, 2) + Math.pow(totalVelocityX, 2), 1/2);
 	    return totalVelocity;
 	  }
+	
+	// Put methods for controlling this subsystem here. Call these from Commands.	
+	public double getDistance(double x){ //x is the number of ticks from getVelocity
+		double totalVelocity = this.getVelocity(x);
+		double time = timer.get();
+		double totalDistance = totalVelocity * time;
+		return totalDistance;
+	}
 	
 	public void initDefaultCommand() {
 		//the default command that is used when MecanumDrive is initialized; it just shuts off all the motors.
