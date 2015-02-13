@@ -10,7 +10,7 @@ public class Autonomous extends CommandGroup {
     public  Autonomous() {
     	addSequential(new ForkliftHome());
     	addSequential(new ForkliftUp());
-    	addSequential(new ForkliftHome());
+    //	addSequential(new ForkliftHome());
     	addSequential(new AutonomousDrive());
         // Add Commands here:
         // e.g. addSequential(new Command1());
