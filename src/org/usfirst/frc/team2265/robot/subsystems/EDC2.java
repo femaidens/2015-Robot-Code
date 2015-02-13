@@ -1,3 +1,7 @@
+/* BY: Shazmin and Emma
+ * Second version of EDC
+ * Uses root function instead of piecewise function*/
+
 package org.usfirst.frc.team2265.robot.subsystems;
 
 import org.usfirst.frc.team2265.robot.RobotMap;
