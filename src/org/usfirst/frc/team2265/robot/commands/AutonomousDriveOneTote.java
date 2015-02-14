@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class AutonomousDrive extends Command {
+public class AutonomousDriveOneTote extends Command {
 
-    public AutonomousDrive() {
+    public AutonomousDriveOneTote() {
     	requires(Robot.autoDriver);
       
     }
@@ -22,13 +22,19 @@ public class AutonomousDrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if(Robot.autoDriver.frontLeftEnCount < 60){
-    		Robot.autoDriver.driveForward();
+    		//unsure if the field-oriented drive method will mean that robot orientation does not matter. 
+    		//if the gyro does not compensate for what position the front of the robot is, 
+    		//the correct code is commented out. 
+    		Robot.autoDriver.driveRight();
+    		//Robot.autoDriver.driveForward();
     	}
     	else if (Robot.autoDriver.frontRightEnCount < 90){
     		Robot.autoDriver.driveRight();
+    		//Robot.autoDriver.driveForward();
     	}
     	else if (Robot.autoDriver.frontLeftEnCount < 115) {
     		Robot.autoDriver.driveForward();
+    		//Robot.autoDriver.driveRight();
     	} else {
     		Robot.mecanumDrive.frontLeft.set(0);
     		Robot.mecanumDrive.frontRight.set(0);
