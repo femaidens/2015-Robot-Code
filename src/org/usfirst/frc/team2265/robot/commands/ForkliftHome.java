@@ -6,10 +6,10 @@ import org.usfirst.frc.team2265.robot.Robot;
 /**
  *
  */
-public class Forklift2 extends Command {
+public class ForkliftHome extends Command {
 
-    public Forklift2() {
-    	requires(Robot.forklift);
+    public ForkliftHome() {
+        requires(Robot.forklift);
     }
 
     // Called just before this Command runs the first time
@@ -18,29 +18,25 @@ public class Forklift2 extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Robot.forklift.getEncoderValue() > Robot.forklift.TOTEHEIGHT + Robot.forklift.PLATHEIGHT + 3) {
-    		Robot.forklift.down();
-    	}
-    	else if (Robot.forklift.getEncoderValue() < Robot.forklift.TOTEHEIGHT + Robot.forklift.PLATHEIGHT + 3) {
-    		Robot.forklift.up();
-    	}
-    	else {
-    		end();
-    	}
+    	Robot.forklift.down();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.forklift.getEncoderValue() == Robot.forklift.TOTEHEIGHT + Robot.forklift.PLATHEIGHT + 3;
+        return Robot.forklift.isSwitchSet();
     }
 
     // Called once after isFinished returns true
     protected void end() {
     	Robot.forklift.stop();
+    	Robot.forklift.resetCounter();
+    	Robot.forklift.resetEncoder();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
+    	
     }
 }

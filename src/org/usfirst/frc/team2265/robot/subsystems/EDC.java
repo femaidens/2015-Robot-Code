@@ -1,5 +1,8 @@
 package org.usfirst.frc.team2265.robot.subsystems;
 
+import org.usfirst.frc.team2265.robot.Robot;
+import org.usfirst.frc.team2265.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Joystick;
 
@@ -16,7 +19,7 @@ public class EDC extends Subsystem {
   private final double BASE = 10; 
     
  /* create Joystick leftJoy */
-  Joystick leftJoy; 
+  Joystick leftJoystick = Robot.mecanumDrive.leftJoystick;
   
   public EDC(){
   }
@@ -30,7 +33,7 @@ public class EDC extends Subsystem {
  public double convertDriveVal(){
   
    /* get y-value of given joystick and intialize driveVal */ 
-   double yVal = leftJoy.getY();
+   double yVal = leftJoystick.getY();
  // double yVal = driveJoy.getRawAxis(2);
   double driveVal = 1; // TODO this might not be correct
      
