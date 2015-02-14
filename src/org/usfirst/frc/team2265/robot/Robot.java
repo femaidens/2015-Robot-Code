@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
-import org.usfirst.frc.team2265.robot.subsystems.AutoDriver;
+//mport org.usfirst.frc.team2265.robot.subsystems.AutoDriver;
 import org.usfirst.frc.team2265.robot.subsystems.Forklift;
 import org.usfirst.frc.team2265.robot.subsystems.Manipulator;
 import org.usfirst.frc.team2265.robot.subsystems.DriveControl;
@@ -31,7 +31,7 @@ public class Robot extends IterativeRobot {
 	public static Forklift forklift;
 	public static Manipulator manipulator; 
 	public static LiveWindow liveWindow;
-	public static AutoDriver autoDriver;
+	//public static AutoDriver autoDriver;
 	
 
 	Command autonomousCommand;
@@ -49,7 +49,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		manipulator.start();
 		//liveWindow.addSensor("Forklift", "encoder", forklift.encoder);
-		autoDriver = new AutoDriver();
+		//autoDriver = new AutoDriver();
 	
 	}
 	public void disabledPeriodic() {

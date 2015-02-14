@@ -8,10 +8,10 @@ package org.usfirst.frc.team2265.robot;
 public class RobotMap {
 	
 	//JOYSTICK PORTS
-	//public static int leftJoyPort = 1;
-	//public static int rightJoyPort = 2;
-	public static int driveJoyPort = 1;
-	public static int atkJoyPort = 3;
+	public static int leftJoyPort = 0;
+	public static int rightJoyPort = 1;
+	//public static int driveJoyPort = 1;
+	public static int atkJoyPort = 2;
 	 
 	//BUTTON NUMBERS
 	public static int pistonOutNum = 1;
