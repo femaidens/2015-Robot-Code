@@ -4,14 +4,16 @@
 
 package org.usfirst.frc.team2265.robot.subsystems;
 
+import org.usfirst.frc.team2265.robot.Robot;
 import org.usfirst.frc.team2265.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Joystick;
 
 public class EDC2 extends Subsystem{
 	
-	/* create Joystick leftJoy */
-	  Joystick leftJoy  = new Joystick(RobotMap.driveJoyPort); 
+
+	 Joystick leftJoystick = Robot.mecanumDrive.leftJoystick;
 	  
 	/* constructor */  
 	  public EDC2(){
@@ -22,7 +24,7 @@ public class EDC2 extends Subsystem{
 		  double driveVal = 1; 
 		  
 		  /* get y-value of given joystick and initialize driveVal */ 
-		   double yVal = leftJoy.getY();
+		   double yVal = leftJoystick.getY();
 	      
 		  /* return 0 when joystick isn't moving */
 		  if (yVal == 0){ 

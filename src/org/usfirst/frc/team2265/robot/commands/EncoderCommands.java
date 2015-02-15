@@ -1,16 +1,18 @@
 package org.usfirst.frc.team2265.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc.team2265.robot.Robot;
 
-/**
- *
- */
-public class EncoderTest extends Command {
+import edu.wpi.first.wpilibj.command.Command;
 
-    public EncoderTest() {
-        requires(Robot.forklift);
+/**
+ * this code is to test the encoder
+ */
+public class EncoderCommands extends Command {
+
+    public EncoderCommands() {
+    	requires(Robot.forklift);
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
