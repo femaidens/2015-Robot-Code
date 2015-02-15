@@ -8,6 +8,27 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonomousTwoTotes extends CommandGroup {
     
     public  AutonomousTwoTotes() {
+    	addSequential(new ForkliftHome());
+    	addSequential(new ForkliftUp());
+    	addSequential(new AutonomousForward());
+    	//AutonomousLeftStrafe goes for 40 encoder clicks, not 25!!
+    	addSequential(new AutonomousLeftStrafe());
+    	addSequential (new AutonomousBackwards());
+    	addSequential(new ForkliftHome());
+    	addSequential(new ForkliftUp());
+      	addSequential (new AutonomousForward());
+    	/*addSequential(new ForkliftHome());
+    	addSequential(new AutonomousRightStrafe());
+    	addSequential(new ForkliftUp());
+    	addSequential(new AutonomousBackwards());
+    	addSequential(new AutonomousBackwards());
+    	addSequential(new ForkliftHome());
+    	addSequential(new ForkliftUp());
+    	addSequential(new AutonomousForward());
+    	addSequential(new AutonomousForward());
+    	*/
+
+    	
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

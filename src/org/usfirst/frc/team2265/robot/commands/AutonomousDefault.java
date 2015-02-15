@@ -11,7 +11,10 @@ public class AutonomousDefault extends CommandGroup {
     	addSequential(new ForkliftHome());
     	addSequential(new ForkliftUp());
     //	addSequential(new ForkliftHome());
-    	addSequential(new AutonomousDriveOneTote());
+    	addSequential(new AutonomousForward());
+    	addSequential(new AutonomousRightStrafe());
+    	addSequential (new AutonomousForward());
+    	addSequential (new AutonomousForward());
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
