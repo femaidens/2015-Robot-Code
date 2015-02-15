@@ -22,15 +22,15 @@ public class AutoDriver extends Subsystem {
 	Encoder rearLeftEnco = new Encoder(RobotMap.rearLeftEncoPortOne, RobotMap.rearLeftEncoPortTwo);
 	Encoder rearRightEnco = new Encoder(RobotMap.rearRightEncoPortOne, RobotMap.rearRightEncoPortTwo);
 	Timer timer = new Timer();
-	public int frontLeftEnCount = frontLeftEnco.getRaw();
-	public int frontRightEnCount = frontRightEnco.getRaw();
+	public int frontLeftEnCount = frontLeftEnco.get();
+	public int frontRightEnCount = frontRightEnco.get();
 	
 
 	// Put methods for controlling this subsystem here. Call these from Commands.
 	public void driveForward() {
 		frontLeftEnco.reset();
 		while (frontLeftEnCount < 4){
-		autonDrive.mecanumDrive_Cartesian(0, 0.6, 0, gyroscope.getAngle());
+		autonDrive.mecanumDrive_Cartesian(0, 0.25, 0, gyroscope.getAngle());
 		frontRightEnCount = frontRightEnco.getRaw();
 		frontLeftEnCount = frontLeftEnco.getRaw();
 		}
@@ -39,35 +39,35 @@ public class AutoDriver extends Subsystem {
 	public void driveRight() {
 		frontLeftEnco.reset(); 
 		while (frontLeftEnCount < 4){
-		autonDrive.mecanumDrive_Cartesian(0.6, 0, 0, gyroscope.getAngle());
-		frontRightEnCount = frontRightEnco.getRaw();
-		frontLeftEnCount = frontLeftEnco.getRaw();
+		autonDrive.mecanumDrive_Cartesian(0.25, 0, 0, gyroscope.getAngle());
+		frontRightEnCount = frontRightEnco.get();
+		frontLeftEnCount = frontLeftEnco.get();
 		}
 	}
 	// Put methods for controlling this subsystem here. Call these from Commands.
 	public void driveLeft() {
 		frontRightEnco.reset();
 		while (frontRightEnCount < 4){
-		autonDrive.mecanumDrive_Cartesian(-0.6, 0, 0, gyroscope.getAngle());
-		frontRightEnCount = frontRightEnco.getRaw();
-		frontLeftEnCount = frontLeftEnco.getRaw();
+		autonDrive.mecanumDrive_Cartesian(-0.25, 0, 0, gyroscope.getAngle());
+		frontRightEnCount = frontRightEnco.get();
+		frontLeftEnCount = frontLeftEnco.get();
 		}
 	}
 	public void driveBack() {
 		frontRightEnco.reset();
 		while (frontRightEnCount < 3){
-		autonDrive.mecanumDrive_Cartesian(0, -0.6, 0, gyroscope.getAngle());
-		frontRightEnCount = frontRightEnco.getRaw();
-		frontLeftEnCount = frontLeftEnco.getRaw();
+		autonDrive.mecanumDrive_Cartesian(0, -0.25, 0, gyroscope.getAngle());
+		frontRightEnCount = frontRightEnco.get();
+		frontLeftEnCount = frontLeftEnco.get();
 		}
 		
 	}
 		public void rotateLeft() {
 			frontRightEnco.reset();
 			while (frontRightEnCount < 4){
-			autonDrive.mecanumDrive_Cartesian(0, 0, -0.6, gyroscope.getAngle());
-			frontRightEnCount = frontRightEnco.getRaw();
-			frontLeftEnCount = frontLeftEnco.getRaw();
+			autonDrive.mecanumDrive_Cartesian(0, 0, -0.25, gyroscope.getAngle());
+			frontRightEnCount = frontRightEnco.get();
+			frontLeftEnCount = frontLeftEnco.get();
 			}
 	}
 	// Put methods for controlling this subsystem here. Call these from Commands.
