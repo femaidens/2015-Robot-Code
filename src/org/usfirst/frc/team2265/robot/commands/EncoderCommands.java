@@ -5,7 +5,7 @@ import org.usfirst.frc.team2265.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * this code is to test the encoder
  */
 public class EncoderCommands extends Command {
 

@@ -127,10 +127,10 @@ public class Forklift extends Subsystem {
 	}
 	
 	/**
-	 * Get distance moved from Home by encoder.
+	 * Get the level of the forklift.
 	 */
 	public double getEncoderValue() {
-		return encoder.get();
+		return encoder.get(); //this will be modified to convert to forklift level once tested
 	}
 
 	/**
