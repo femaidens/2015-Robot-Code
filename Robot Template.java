@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SimpleRobot;
 
-public class RobotTemplate extends SimpleRobot{
+public class RobotTemplate extends SampleRobot{
 
     private Joystick leftJoystick = new Joystick(2);
     private Joystick rightJoystick = new Joystick(1);
@@ -14,7 +14,7 @@ public class RobotTemplate extends SimpleRobot{
     private AxisCamera cam;
     
     //Needs ports for compressor.
-    private Compressor comp = new Compressor( , );
+    //private Compressor comp = new Compressor( , );
     
     //Robot picks up totes, drives forward in autonomous.
     public void autonomous(){
