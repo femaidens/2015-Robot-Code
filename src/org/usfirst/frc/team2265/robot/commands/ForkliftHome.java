@@ -31,6 +31,7 @@ public class ForkliftHome extends Command {
     	Robot.forklift.stop();
     	Robot.forklift.resetCounter();
     	Robot.forklift.resetEncoder();
+    	Robot.forklift.setLvl(0);
     }
 
     // Called when another command which requires one or more of the same

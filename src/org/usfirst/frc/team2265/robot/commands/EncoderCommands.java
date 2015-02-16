@@ -35,6 +35,7 @@ public class EncoderCommands extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.forklift.stop();
+    	Robot.forklift.setEncoderValue();
     }
 
     // Called when another command which requires one or more of the same

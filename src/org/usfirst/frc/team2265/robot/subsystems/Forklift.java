@@ -37,14 +37,14 @@ public class Forklift extends Subsystem {
 	public static Counter counterBottom = new Counter(limitSwitchBottom);
 	public Encoder encoder = new Encoder(RobotMap.forkliftEncoderPortOne, RobotMap.forkliftEncoderPortOne, true, Encoder.EncodingType.k4X);
 	//Ultrasonic ultrasonicSensor = new Ultrasonic(RobotMap.sonicPortOne, RobotMap.sonicPortTwo);
-	public double curLevel;
+	public int curLvl;
  
 	/**
 	 * Contructor to set encoder settings.
 	 */
 	public Forklift() {
 		encoder.setSamplesToAverage(SAMPLESTOAVG);
-		curLevel = 0; 
+		curLvl = 0; 
 	}
 	
 	/**
@@ -78,7 +78,7 @@ public class Forklift extends Subsystem {
 	 * method to set the forklift display on the SmartDashboard
 	 * @see edu.wpi.first.wpilibj.command.Subsystem#initDefaultCommand()
 	 */
-	public void setForkliftDisplay(double lvl) {
+	public void setForkliftDisplay(int lvl) {
 		//SmartDashboard.putNumber("Forklift Level", ((ultrasonicSensor.getRangeInches()*NUMLEVELS)/FORKLIFTHEIGHT));
 		SmartDashboard.putNumber("Forklift Level", lvl);
 	}
@@ -86,16 +86,32 @@ public class Forklift extends Subsystem {
 	/*
 	 * sets current level
 	 */
-	public void setLevel(double lvl) {
-		curLevel = lvl;
+	public void setLvl(int lvl) {
+		curLvl = lvl;
 	}
 	
 	/*
-	 * returns current level
+	 * returns level inputted in inches
 	 */
-	public double getLevel() {
-		return curLevel;
+	public double getLvl(int lvl) {
+		double value = 0;
+		switch (lvl) {
+			case 1: value = 10.0;
+				break;
+			case 2: value = 22.0;
+				break;
+			case 3: value = 36.0;
+				break;
+			case 4: value = 48.0;
+				break;
+			case 5: value = 60.0;
+				break;
+			case 6: value = 72.0;
+				break;
+		}
+		return value;
 	}
+	
 	
 	/**
 	 * Check if the switch has been set by checking if the counter is above 0.
@@ -108,8 +124,8 @@ public class Forklift extends Subsystem {
 	 * Reset counter for limit switch.
 	 */
 	public void resetCounter() {
-        	counterTop.reset();
-        	counterBottom.reset();
+        counterTop.reset();
+        counterBottom.reset();
 	}
 	
 	/**
@@ -120,10 +136,10 @@ public class Forklift extends Subsystem {
 	}
 	
 	/*
-	 * 
+	 * See the encoder value. Purely for testing purposes.
 	 */
 	public void setEncoderValue() {
-		SmartDashboard.putNumber("Encoder Value", encoder.get());
+		SmartDashboard.putNumber("Encoder Value", getEncoderValue());
 	}
 	
 	/**
