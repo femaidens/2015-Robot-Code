@@ -5,71 +5,73 @@ import org.usfirst.frc.team2265.robot.RobotMap;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
+
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Encoder;
   
 public class AutoDriver extends Subsystem {
 	//creation of talon motors, mecDrive, and gyroscope
-	public CANTalon frontLeft = new CANTalon(RobotMap.frontLeftPort);
-	public CANTalon rearLeft = new CANTalon(RobotMap.rearLeftPort);
-	public CANTalon frontRight = new CANTalon(RobotMap.frontRightPort);
-	public CANTalon rearRight = new CANTalon(RobotMap.rearRightPort);
+	public CANTalon frontLeft;
+	public CANTalon rearLeft;
+	public CANTalon frontRight;
+	public CANTalon rearRight;
 	RobotDrive autonDrive = new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
-	Gyro gyroscope = new Gyro(RobotMap.gyroPort);
-	Encoder frontLeftEnco = new Encoder(RobotMap.frontLeftEncoPortOne, RobotMap.frontLeftEncoPortTwo);
-	Encoder frontRightEnco = new Encoder(RobotMap.frontRightEncoPortOne, RobotMap.frontRightEncoPortTwo);
-	Encoder rearLeftEnco = new Encoder(RobotMap.rearLeftEncoPortOne, RobotMap.rearLeftEncoPortTwo);
-	Encoder rearRightEnco = new Encoder(RobotMap.rearRightEncoPortOne, RobotMap.rearRightEncoPortTwo);
-	Timer timer = new Timer();
-	public int frontLeftEnCount = frontLeftEnco.get();
-	public int frontRightEnCount = frontRightEnco.get();
 	
+	Gyro gyroscope = new Gyro(RobotMap.gyroPort);
+	Timer timer = new Timer();
 
-	// Put methods for controlling this subsystem here. Call these from Commands.
+	public AutoDriver(){
+		frontLeft.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+		frontRight.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+		rearLeft.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+		rearRight.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+	}// Put methods for controlling this subsystem here. Call these from Commands.
 	public void driveForward() {
-		frontLeftEnco.reset();
-		while (frontLeftEnCount < 4){
+		frontLeft.setPosition(0);
+		while (frontLeft.getEncPosition() < 4){
 		autonDrive.mecanumDrive_Cartesian(0, 0.25, 0, gyroscope.getAngle());
-		frontRightEnCount = frontRightEnco.getRaw();
-		frontLeftEnCount = frontLeftEnco.getRaw();
+		frontRight.getEncPosition();
+		frontLeft.getEncPosition();
 		}
 	}
 	// Put methods for controlling this subsystem here. Call these from Commands.
 	public void driveRight() {
-		frontLeftEnco.reset(); 
-		while (frontLeftEnCount < 4){
+		frontLeft.setPosition(0); 
+		while (frontLeft.getEncPosition() < 4){
 		autonDrive.mecanumDrive_Cartesian(0.25, 0, 0, gyroscope.getAngle());
-		frontRightEnCount = frontRightEnco.get();
-		frontLeftEnCount = frontLeftEnco.get();
+		frontRight.getEncPosition();
+		frontLeft.getEncPosition();
 		}
 	}
 	// Put methods for controlling this subsystem here. Call these from Commands.
 	public void driveLeft() {
-		frontRightEnco.reset();
-		while (frontRightEnCount < 4){
+		frontRight.setPosition(0);
+		while (frontRight.getEncPosition() < 4){
 		autonDrive.mecanumDrive_Cartesian(-0.25, 0, 0, gyroscope.getAngle());
-		frontRightEnCount = frontRightEnco.get();
-		frontLeftEnCount = frontLeftEnco.get();
+		frontRight.getEncPosition();
+		frontLeft.getEncPosition();
 		}
 	}
 	public void driveBack() {
-		frontRightEnco.reset();
-		while (frontRightEnCount < 3){
+		frontRight.setPosition(0);
+		while (frontRight.getEncPosition() < 3){
 		autonDrive.mecanumDrive_Cartesian(0, -0.25, 0, gyroscope.getAngle());
-		frontRightEnCount = frontRightEnco.get();
-		frontLeftEnCount = frontLeftEnco.get();
+		frontRight.getEncPosition();
+		frontLeft.getEncPosition();
 		}
 		
 	}
 		public void rotateLeft() {
-			frontRightEnco.reset();
-			while (frontRightEnCount < 4){
+			frontRight.setPosition(0);
+			while (frontLeft.getEncPosition() < 2){
 			autonDrive.mecanumDrive_Cartesian(0, 0, -0.25, gyroscope.getAngle());
-			frontRightEnCount = frontRightEnco.get();
-			frontLeftEnCount = frontLeftEnco.get();
+			frontRight.getEncPosition();
+			frontLeft.getEncPosition();
 			}
 	}
+		/*
 	// Put methods for controlling this subsystem here. Call these from Commands.
 	private double getVelocity(double x){
 	    frontLeftEnco.setDistancePerPulse(x);
@@ -100,7 +102,7 @@ public class AutoDriver extends Subsystem {
 		double totalDistance = totalVelocity * time;
 		return totalDistance;
 	}
-	
+	*/
 	public void initDefaultCommand() {
 		//the default command that is used when MecanumDrive is initialized; it just shuts off all the motors.
 	}
