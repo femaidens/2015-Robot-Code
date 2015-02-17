@@ -3,13 +3,12 @@ package org.usfirst.frc.team2265.robot.subsystems;
 import org.usfirst.frc.team2265.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.TalonSRX;
+import edu.wpi.first.wpilibj.CANTalon;
 //import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.Encoder;
 
 
 /**
@@ -22,29 +21,29 @@ public class Forklift extends Subsystem {
 	private static final double UP = 0.75;
 	private static final double DOWN = -0.75;
 	private static final double STOP = 0.0;
-	private final int SAMPLESTOAVG = 127;
 	public final double TOTEHEIGHT = 12;
 	public final double BINHEIGHT = 29;
 	public final double PLATHEIGHT = 2;
 	
 	//Subsystem devices
 	public Timer clock = new Timer();
-	TalonSRX topMotor = new TalonSRX(RobotMap.topForkPort); 
-	TalonSRX bottomMotor = new TalonSRX(RobotMap.bottomForkPort);
+	CANTalon topMotor = new CANTalon(RobotMap.topForkPort); 
+	CANTalon bottomMotor = new CANTalon(RobotMap.bottomForkPort);
 	public static DigitalInput limitSwitchTop = new DigitalInput(RobotMap.limitSwitchPortTop);
 	public static DigitalInput limitSwitchBottom = new DigitalInput(RobotMap.limitSwitchPortBottom);
 	public static Counter counterTop = new Counter(limitSwitchTop);
 	public static Counter counterBottom = new Counter(limitSwitchBottom);
-	public Encoder encoder = new Encoder(RobotMap.forkliftEncoderPortOne, RobotMap.forkliftEncoderPortOne, true, Encoder.EncodingType.k4X);
+	//public Encoder encoder = new Encoder(RobotMap.forkliftEncoderPortOne, RobotMap.forkliftEncoderPortOne, true, Encoder.EncodingType.k4X);
 	//Ultrasonic ultrasonicSensor = new Ultrasonic(RobotMap.sonicPortOne, RobotMap.sonicPortTwo);
+	
 	public int curLvl;
  
 	/**
 	 * Contructor to set encoder settings.
 	 */
 	public Forklift() {
-		encoder.setSamplesToAverage(SAMPLESTOAVG);
 		curLvl = 0; 
+		topMotor.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
 	}
 	
 	/**
@@ -132,7 +131,7 @@ public class Forklift extends Subsystem {
 	 * Reset encoder. 
 	 */
 	public void resetEncoder() {
-		encoder.reset();
+		topMotor.setPosition(0.0);
 	}
 	
 	/*
@@ -146,7 +145,7 @@ public class Forklift extends Subsystem {
 	 * Get the level of the forklift.
 	 */
 	public double getEncoderValue() {
-		return encoder.get(); //this will be modified to convert to forklift level once tested
+		return topMotor.getEncPosition(); //this will be modified to convert to forklift level once tested
 	}
 
 	/**
