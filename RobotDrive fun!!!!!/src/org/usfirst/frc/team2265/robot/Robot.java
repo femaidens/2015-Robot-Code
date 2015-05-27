@@ -1,4 +1,3 @@
-
 package org.usfirst.frc.team2265.robot;  
 
 import edu.wpi.first.wpilibj.CANTalon;
@@ -14,22 +13,23 @@ import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-/**
- * The VM is configured to automatically run this class, and to call the
- * functions corresponding to each mode, as described in the IterativeRobot
- * documentation. If you change the name of this class or the package after
- * creating this project, you must also update the manifest file in the resource
- * directory.
- */
 public class Robot extends IterativeRobot {
-	/**
-	 * This function is run when the robot is first started up and should be
-	 * used for any initialization code.
-	 * 
-	 */
-	Joystick leftJoy = new Joystick(0);
-	Joystick rightJoy = new Joystick(1);
-	Joystick xbox = new Joystick(2);
+	
+	public static int leftJoyPort = 0;
+	public static int rightJoyPort = 1;
+	public static int atkJoyPort = 2;
+	public static int frontLeftPort = 1;
+	public static int rearLeftPort = 2;
+	public static int frontRightPort = 3;
+	public static int rearRightPort = 4;
+	public static int pulleyRightPort = 11;
+	public static int pulleyLeftPort = 10;
+	public static int gyroPort = 0;
+	public static int lowerLimPort = 0;
+	
+	Joystick leftJoy = new Joystick(leftJoyPort);
+	Joystick rightJoy = new Joystick(rightJoyPort);
+	Joystick xbox = new Joystick(atkJoyPort);
 
 	double X;
 	double Y;
@@ -39,13 +39,7 @@ public class Robot extends IterativeRobot {
 	private Compressor compressor = new Compressor();
     private DoubleSolenoid Gripper = new DoubleSolenoid(0,1);
     
-    public static int frontLeftPort = 1;
-	public static int rearLeftPort = 2;
-	public static int frontRightPort = 3;
-	public static int rearRightPort = 4;
-	public static int pulleyRightPort = 11;
-	public static int pulleyLeftPort = 10;
-	
+    
 	CANTalon frontLeft = new CANTalon(frontLeftPort);
 	CANTalon rearLeft = new CANTalon(rearLeftPort);
 	CANTalon frontRight = new CANTalon(frontRightPort);
@@ -53,15 +47,14 @@ public class Robot extends IterativeRobot {
 	CANTalon pulleyLeft = new CANTalon(pulleyLeftPort);
 	CANTalon pulleyRight = new CANTalon(pulleyRightPort);
 	Timer watcher= new Timer(); 
-	
 	RobotDrive mecanumDrive = new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
-	
-	public static int gyroPort = 0;
 	Gyro gyroscope = new Gyro(gyroPort);
-	DigitalInput lowerLim= new DigitalInput(0); 
+	DigitalInput lowerLim= new DigitalInput(lowerLimPort);
+	
 	boolean isAuton= true;
 	int angle;
 	double timedelay=5;
+	
 	public void robotInit() {
 		angle=0;
 		frontLeft.setFeedbackDevice(FeedbackDevice.QuadEncoder);
@@ -72,18 +65,15 @@ public class Robot extends IterativeRobot {
 		pulleyLeft.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 		
 		pulleyLeft.changeControlMode(CANTalon.ControlMode.Follower); 
-    		pulleyLeft.set(pulleyRight.getDeviceID());
+    	pulleyLeft.set(pulleyRight.getDeviceID());
 		
 		mecanumDrive.setInvertedMotor(MotorType.kFrontRight, true);
-        	mecanumDrive.setInvertedMotor(MotorType.kRearRight, true);
+        mecanumDrive.setInvertedMotor(MotorType.kRearRight, true);
         
 		gyroscope.reset();
 		SmartDashboard.putNumber("right throttle vals ", rightJoy.getRawAxis(3));
     	}
 
-	/**
-	 * This function is called periodically during autonomous
-	 */
 	public void autonomousPeriodic() {
 		while (isAuton && isEnabled() && isAutonomous()){
 			stab2x();
@@ -91,6 +81,7 @@ public class Robot extends IterativeRobot {
 		}
 		drive(0,0,0);
 	}
+	
 	public void stab2x(){
 		stab();
     	
@@ -114,6 +105,7 @@ public class Robot extends IterativeRobot {
 		forklift(0);
 		Gripper.set(DoubleSolenoid.Value.kReverse);
 	}
+	
 	public void stab(){
 		forward(2.3);
 		Timer.delay(1);
@@ -121,6 +113,7 @@ public class Robot extends IterativeRobot {
 		Timer.delay(.5);
 		backward(2.2);
 	}
+	
 	public void stabish(){
 		forklift(-.5);
 		Timer.delay(.2);
@@ -131,6 +124,7 @@ public class Robot extends IterativeRobot {
 		isAuton = true;
 		gyroscope.reset();
 	}
+	
 	public void turn(int degrees){
 		double angle1 =(degrees+gyroscope.getAngle())%360;
 		while (gyroscope.getAngle()%360 != angle1){
@@ -138,6 +132,7 @@ public class Robot extends IterativeRobot {
 		}
 		drive(0,0,0);
 	}
+	
 	public void turn(double time){
 		watcher.start(); 
 		while (watcher.get() < time){
@@ -154,6 +149,7 @@ public class Robot extends IterativeRobot {
 		Timer.delay(.2);
 		forklift(0);
 	}
+	
 	public void backward(double time){
 		watcher.start(); 
 		while (watcher.get() < time){
@@ -162,6 +158,7 @@ public class Robot extends IterativeRobot {
 		}
 		drive(0,0,0);
 	}
+	
 	public void side(double time){
 		watcher.start(); 
 		while (watcher.get() < time){
@@ -170,21 +167,21 @@ public class Robot extends IterativeRobot {
 		}
 		drive(0,0,0);
 	}
+	
 	public void forward(double time){
 		watcher.start(); 
 		while (watcher.get() < time){
 			System.out.println(watcher); 
 			drive(0,-0.25,0);
 		}
+		
 		drive(0,0,0);
 	}
     
-	/**
-	 * This function is called periodically during operator control
-	 */
 	public void teleopinit(){
 		angle=0;
 	}
+	
 	public void teleopPeriodic() {
 		while (isOperatorControl() && isEnabled()){
 			forklift();
@@ -194,29 +191,33 @@ public class Robot extends IterativeRobot {
 			Timer.delay(.001);
 		}
 	}
+	
 	public void buttons(){
 		if (xbox.getRawButton(2)){
 		Gripper.set(DoubleSolenoid.Value.kForward);
 		}
+		
 		if (xbox.getRawButton(6)){
 			gyroscope.reset();
 		}
+		
 		if (xbox.getRawButton(3)){
 			Gripper.set(DoubleSolenoid.Value.kReverse);
 		}
+		
 		if (leftJoy.getRawButton(5)){
 			gyroscope.reset();		
 		}
+		
 		if(xbox.getRawButton(1)){
 			drive(0,-0.25,0);
 		}
 	}
-	/**
-	 * This function is called periodically during test mode
-	 */
+	
 	public void testinit() {
 		boolean test = true;
 	}
+	
 	public void testPeriodic() {
 		buttons();
 	}
@@ -232,6 +233,7 @@ public class Robot extends IterativeRobot {
 		
 		drive(X, Y, Z); 
 	}
+	
 	public void drive(double X, double Y, double Z){
 		System.out.println("gyroscope.getAngle()="+gyroscope.getAngle());
 		mecanumDrive.mecanumDrive_Cartesian(X, Y, Z, gyroscope.getAngle()+angle); 
@@ -247,6 +249,7 @@ public class Robot extends IterativeRobot {
 		}
 		forklift(c);
 	}
+	
 	public void forklift(double c){
 		pulleyRight.set(c);	
 	}
